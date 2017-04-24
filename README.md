@@ -1,3 +1,3 @@
-# wekaco.github.io
+![wekaco: About that life](https://wekaco.github.io/assets/img/fb.png)
 
-Homepage of wekaco.
+Everyday, we've gotta stay battling. Gotta stay fighting. Gotta stay striving. Gotta stay dreaming. Gotta stay believing.
