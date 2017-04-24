@@ -7195,8 +7195,8 @@ body,
 .full-height {
   min-height: 100% !important;
   height: 100%;
-  color: #fff;
-  background-color: #191919;
+  color: #191919;
+  background-color: #fff;
 }
 body {
   padding-top: 50px;
@@ -7226,7 +7226,7 @@ a.artist {
   line-height: 36px;
   padding-bottom: 50px;
   display: block;
-  color: #fff;
+  color: #191919;
 }
 .gray {
   color: #dadada;
@@ -7241,7 +7241,7 @@ a:hover {
   background-color: #dadada;
   /**background: url('../assets/img/1953_coronation_ticket.jpg') repeat bottom center;**/
   /**background: url('../assets/img/800px-ASCII-Codes.gif') repeat center center;**/
-  color: #191919;
+  color: #fff;
   overflow: hidden;
 }
 .bold {
