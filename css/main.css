@@ -7248,10 +7248,14 @@ a:hover {
 }
 .gray-box {
   background-color: #dadada;
+  margin-right: 35px;
   /**background: url('../assets/img/1953_coronation_ticket.jpg') repeat bottom center;**/
   /**background: url('../assets/img/800px-ASCII-Codes.gif') repeat center center;**/
   color: #fff;
   overflow: hidden;
+}
+.gray-box > .bold {
+  margin-right: -12px;
 }
 .bold {
   font-size: 140px;
