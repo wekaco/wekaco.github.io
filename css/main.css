@@ -7196,13 +7196,16 @@ body,
   min-height: 100% !important;
   height: 100%;
   color: #191919;
-  background-color: #fff;
+  /*  background-color: @primary-invert;*/
 }
 body {
   padding-top: 50px;
   padding-bottom: 50px;
   margin: 0px;
   text-transform: uppercase;
+}
+.landing {
+  background: url('../assets/img/ac.jpg') repeat repeat;
 }
 .sideways-lr {
   writing-mode: vertical-lr;
@@ -7249,7 +7252,6 @@ a:hover {
 .gray-box {
   background-color: #dadada;
   margin-right: 35px;
-  /**background: url('../assets/img/1953_coronation_ticket.jpg') repeat bottom center;**/
   /**background: url('../assets/img/800px-ASCII-Codes.gif') repeat center center;**/
   color: #fff;
   overflow: hidden;
