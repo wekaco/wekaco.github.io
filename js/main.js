@@ -22,15 +22,16 @@
   function cta(eventName) {
     switch(eventName) {
       case SC.Widget.Events.PLAY:
+        return 'Pause';
       case SC.Widget.Events.FINISH:
       case SC.Widget.Events.PAUSE:
       default:
-        return 'Preview';
+        return 'Preview sample';
     }
   }
 
   var btn = document.getElementById('preview');
-  btn.disabled = true;
+  //btn.disabled = true;
   var widget   = SC.Widget('widget');
 
   widget.bind(SC.Widget.Events.PLAY_PROGRESS, function(eventData) {
@@ -38,8 +39,8 @@
   });
   widget.bind(SC.Widget.Events.READY, function() {
     widget.getPosition(updateConsole);
-    btn.disabled = false;
-    btn.classList.add('button-primary');
+    //btn.disabled = false;
+    //btn.classList.add('button-primary');
     btn.innerHTML = cta(SC.Widget.Events.READY);
   });
   widget.bind(SC.Widget.Events.PLAY, function() {
@@ -52,12 +53,11 @@
     btn.innerHTML = cta(SC.Widget.Events.FINISH);
   });
 
-  addEvent(btn, 'click', function(e) {
+  addEvent(document.querySelector('div.preview'), 'click', function(e) {
     /**if (e.target !== this) {
       e.stopPropagation();
       return false;
     }**/
-    console.log('button click');
     widget.getPosition(updateConsole);
     widget.toggle();
   });
