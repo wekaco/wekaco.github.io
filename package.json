@@ -1,0 +1,12 @@
+{
+  "name": "wekaco.github.io",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "git@github.com:wekaco/wekaco.github.io.git",
+  "scripts": {
+    "dev": "./node_modules/.bin/lr-http-server"
+  },
+  "devDependencies": {
+    "lr-http-server": "^0.1.5"
+  }
+}
