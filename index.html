@@ -30,7 +30,11 @@
   <!--<link rel="stylesheet" href="css/skeleton.css?ICBkHaMOPXs">-->
   <link rel="stylesheet" href="css/custom.css?ICBkHaMOPXs">
 
-  <!--<script src="js/api.js"></script>-->
+  <!-- Device motion capture experiment
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- Latest compiled and minified plotly.js JavaScript -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -72,7 +76,7 @@ ul.refs {
 <body class="light">
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
+  <div id="main" class="container">
     <div class="obj l" style="background-color: yellow;padding-bottom:20%;">
       <h1>WKC013</h1>
       <h2>Hard to find speed garage</h2>
@@ -92,7 +96,7 @@ ul.refs {
       />
     </div>
   </div>
-  <div class="sticky">
+  <!--<div class="sticky">
     <div class="container">
       <a href="https://m.me/dmtrs.flaco">
         <div class="ad gradient" style="opacity: 0.5">
@@ -100,7 +104,8 @@ ul.refs {
         </div>
       </a>
     </div>
-  </div>
+  </div>-->
+  <script src="js/devicemotion.js"></script>
   <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
