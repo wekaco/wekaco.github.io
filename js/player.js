@@ -39,15 +39,16 @@ var stop = document.querySelector('.stop');
     cb(null, ctx);
   }
 
+  stop.setAttribute('disabled', 'disabled');
   // wire up buttons to stop and play audio
   play.onclick = function() {
     play.setAttribute('disabled', 'disabled');
+
     getCtx((err, ctx) => {
       if (err) {
         play.removeAttribute('disabled');
         return console.error(err);
       }
-
       console.log(ctx.state);
       getBufferSource('/data/WKC013.m4a', ctx, (err, source) => {
         if (err) {
@@ -56,9 +57,11 @@ var stop = document.querySelector('.stop');
         }
         source.connect(ctx.destination);
         source.start(0);
+        stop.removeAttribute('disabled');
         stop.onclick = () => {
           source.stop(0);
           play.removeAttribute('disabled');
+          stop.setAttribute('disabled', 'disabled');
         }
       });
     });
