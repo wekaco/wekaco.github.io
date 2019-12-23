@@ -1,0 +1,95 @@
+<ptrack>
+  <article>
+    <details>
+      <summary>{ props.input.user.username }&nbsp;<em>{ props.input.title }</em></summary>
+      <figure>
+        <img src={ props.input.artwork_url.replace('large','t500x500') } />
+        <figcaption>{ props.input.description }</figcaption>
+      </figure>
+      <button
+        name="play"
+        onclick={ play }
+        disabled={ state.disabled }>Play
+      </button>
+      <button
+        name="stop"
+        onclick={ pause }>Stop
+      </button>
+    </details>
+  </article>
+  <style>
+    :host {
+      display: flex;
+    }
+    article { 
+      width: 100%;
+    }
+  </style>
+  <script>
+    export default function PTrack() {
+      return {
+        state: {
+          url: null,
+          player: null,
+          disabled: 'disabled'
+        },
+        onBeforeMount(props, state) {
+          SC.stream(`/tracks/${this.props.input.id}`).then( player => {
+            this.state.player = player;
+            this.update({ disabled: false });
+          });
+        },
+        play() {
+          this.state.player.play();
+        },
+        pause() {
+          this.state.player.pause();
+        }
+      };
+    };
+/**
+    (() => {
+    console.clear();
+    SC.initialize({
+    client_id: 'a9d29aaf9a0cc170e7ee6ab980a6ad49'
+    });
+
+    let _current = null;
+    let _is_playing = false;
+
+    function isPlaying() {
+    return _is_playing;
+    }
+    function getCurrentPlayer() {
+    return _current;
+    }
+    function stop() {
+    if (isPlaying()) {
+    getCurrentPlayer().pause();
+    }
+    }
+
+    function setCurrentPlayer(player) {
+    stop();
+    _current = player;
+    return _current;
+    }
+
+    document.querySelectorAll('button[name="stop"]')
+    .forEach( btn => btn.addEventListener('click', stop));
+
+
+    Array.from(document.querySelectorAll('button[name="play"]'))
+    .map( btn => SC.resolve(btn.value)
+    .then( track => SC.stream(`/tracks/${track.id}`))
+    .then( player => {
+    btn.addEventListener('click', (e) => {
+    setCurrentPlayer(player).play();
+    // TODO: replace with event listener on player
+    _is_playing = true;
+    });
+    })
+    );
+    })();**/
+  </script>
+</ptrack>

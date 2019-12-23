@@ -1,0 +1,33 @@
+<app>
+  <section>
+    <ul>
+      <li each={ track in state.tracks }>
+        <ptrack input={ track } ></ptrack> 
+      </li>
+    </ul>
+  </section>
+  <style>
+    :host li {
+      list-style-type: none;
+    }
+  </style>
+  <script>
+    import PTrack from './ptrack.riot';
+
+    export default {
+      state: { tracks: [] },
+      components: {
+        PTrack
+      },
+      onBeforeMount(props, state) {
+        SC.initialize({
+          client_id: this.props.client_id
+        });
+        state.tracks = props.tracks;
+      },
+      onUpdated() {
+        console.log('updated');
+      }
+    };
+  </script>
+</app>
