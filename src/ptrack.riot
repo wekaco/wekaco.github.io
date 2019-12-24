@@ -1,8 +1,12 @@
 <ptrack>
-  <article>
-    <figure>
-      <img src={ props.input.cover } />
-    </figure>
+  <figure>
+    <img
+      src={ props.input.cover }
+      crossorigin="anonymous" />
+  </figure>
+  <article
+    id={ state.uri }
+    disabled={ state.disabled }>
       <h2>{ props.input.title }</h2>
       <h3>{ props.input.username }</h3>
       <button
@@ -20,7 +24,7 @@
     @media (min-width: 360px) {
       :host {
         --figure-width: 100%;
-        --figure-margin: 0 0 16px 0;
+        --figure-margin: 0 0 0 0;
       }
     }
     /* For tablet devices */
@@ -36,11 +40,11 @@
 
     @media (min-width: 1024px) {
       :host {
-        --figure-width: 20%;
-        --figure-margin: 0 0 16px 0;
+        --figure-margin: auto;
       }
     }
-    :host article {
+    :host {
+      display: block;
       height: 100vh; 
     }
     figure {
@@ -53,83 +57,46 @@
     figure img { 
       width: 100%;
     }
-
     article { 
       width: 100%;
+    }
+    article p {
+      :--webit-filter: invert(100%);
+      filter: invert(100%);
+    }
+    article h2 {
+      margin-top: 0;
+    }
+    article[disabled] {
+      opacity: 0.6;
     }
   </style>
   <script>
     const noop = ()=>{};
-    
+  
     const SC_STREAM = 'stream_ready';
     export default function PTrack() {
       return {
         state: {
-          url: null,
-          player: null,
+          uri: null, 
           disabled: 'disabled',
         },
         onBeforeMount(props, state) {
-          this.root.addEventListener(SC_STREAM, props.onStreamReady || noop);
+          state.uri = `tracks/${props.input.id}`;
 
-          const id = this.props.input.id;
-          SC.stream(`/tracks/${id}`).then( player => {
-            this.root.dispatchEvent(new Event(SC_STREAM, { id, player }));
-            state.player = player;
+          const onStreamReady = props.onStreamReady || noop;
+          this.root.addEventListener(SC_STREAM, onStreamReady);
+
+          SC.stream(state.uri).then( player => {
+            const detail = { player };
+            this.root
+              .dispatchEvent(new CustomEvent(SC_STREAM, { detail }));
+
             this.update({ disabled: false });
+
           });
-        },
-        play() {
-          this.state.player.play();
-        },
-        pause() {
-          this.state.player.pause();
         }
       };
     };
-/**
-    (() => {
-    console.clear();
-    SC.initialize({
-    client_id: 'a9d29aaf9a0cc170e7ee6ab980a6ad49'
-    });
-
-    let _current = null;
-    let _is_playing = false;
-
-    function isPlaying() {
-    return _is_playing;
-    }
-    function getCurrentPlayer() {
-    return _current;
-    }
-    function stop() {
-    if (isPlaying()) {
-    getCurrentPlayer().pause();
-    }
-    }
-
-    function setCurrentPlayer(player) {
-    stop();
-    _current = player;
-    return _current;
-    }
-
-    document.querySelectorAll('button[name="stop"]')
-    .forEach( btn => btn.addEventListener('click', stop));
-
-
-    Array.from(document.querySelectorAll('button[name="play"]'))
-    .map( btn => SC.resolve(btn.value)
-    .then( track => SC.stream(`/tracks/${track.id}`))
-    .then( player => {
-    btn.addEventListener('click', (e) => {
-    setCurrentPlayer(player).play();
-    // TODO: replace with event listener on player
-    _is_playing = true;
-    });
-    })
-    );
-    })();**/
   </script>
 </ptrack>
