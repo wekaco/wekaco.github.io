@@ -1,11 +1,10 @@
 <ptrack>
   <article>
-    <details>
-      <summary>{ props.input.user.username }&nbsp;<em>{ props.input.title }</em></summary>
-      <figure>
-        <img src={ props.input.artwork_url.replace('large','t500x500') } />
-        <figcaption>{ props.input.description }</figcaption>
-      </figure>
+    <figure>
+      <img src={ props.input.cover } />
+    </figure>
+      <h2>{ props.input.title }</h2>
+      <h3>{ props.input.username }</h3>
       <button
         name="play"
         onclick={ play }
@@ -15,27 +14,68 @@
         name="stop"
         onclick={ pause }>Stop
       </button>
-    </details>
   </article>
   <style>
-    :host {
+    /* For phone devices */
+    @media (min-width: 360px) {
+      :host {
+        --figure-width: 100%;
+        --figure-margin: 0 0 16px 0;
+      }
+    }
+    /* For tablet devices */
+    @media (min-width: 640px) {
+      :host {
+        --figure-width: 40%;
+        --figure-margin: 0 16px 32px 16px;
+      }
+      figure {
+        float: left;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      :host {
+        --figure-width: 20%;
+        --figure-margin: 0 0 16px 0;
+      }
+    }
+    :host article {
+      height: 100vh; 
+    }
+    figure {
       display: flex;
     }
+    figure {
+      margin: var(--figure-margin);
+      width: var(--figure-width);
+    }
+    figure img { 
+      width: 100%;
+    }
+
     article { 
       width: 100%;
     }
   </style>
   <script>
+    const noop = ()=>{};
+    
+    const SC_STREAM = 'stream_ready';
     export default function PTrack() {
       return {
         state: {
           url: null,
           player: null,
-          disabled: 'disabled'
+          disabled: 'disabled',
         },
         onBeforeMount(props, state) {
-          SC.stream(`/tracks/${this.props.input.id}`).then( player => {
-            this.state.player = player;
+          this.root.addEventListener(SC_STREAM, props.onStreamReady || noop);
+
+          const id = this.props.input.id;
+          SC.stream(`/tracks/${id}`).then( player => {
+            this.root.dispatchEvent(new Event(SC_STREAM, { id, player }));
+            state.player = player;
             this.update({ disabled: false });
           });
         },

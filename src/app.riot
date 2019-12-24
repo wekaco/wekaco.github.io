@@ -1,46 +1,20 @@
 <app>
-  <header class="cover">
-    <img class="cover" src={ state.cover } />
-  </header>
   <section>
-    <ul>
-      <li each={ track in state.tracks }>
-        <ptrack input={ track } ></ptrack> 
-      </li>
-    </ul>
+    <ptrack
+      each={ track in state.tracks }
+      input={ track }
+      onStreamReady={ foo } ></ptrack> 
   </section>
   <style>
-    :host {
-      --cover-width: 60%;
-    }
-    /* For phone devices */
-    @media (min-width: 360px) {
-      :host {
-        --cover-width: 60%;
-      }
-    }
-    /* For tablet devices */
-    @media (min-width: 640px) {
-      :host {
-        --cover-width: 40%;
-      }
-    }
 
-    @media (min-width: 1024px) {
-      :host {
-        --cover-width: 20%;
-      }
+    :host h2, h3 {
+      color: white;
+      -webkit-filter: invert(100%);
+      filter: invert(100%);
     }
-    .cover {
-      width: var(--cover-width);
-    }
+    :host { 
+      /*/background-image: url('images/2019-cover.jpg');*/
 
-    :host li {
-      list-style-type: none;
-    }
-    header.cover {
-      overflow: hidden;
-      max-height: 5em;
     }
   </style>
   <script>
@@ -48,7 +22,6 @@
 
     export default {
       state: {
-        cover: 'images/2019-cover.jpg',
         tracks: []
       },
       components: {
@@ -58,11 +31,16 @@
         SC.initialize({
           client_id: this.props.client_id
         });
-        state.tracks = props.tracks;
+        state.tracks = props.tracks.map( t => ({
+          id: t.id,
+          title: t.title,
+          username: t.user.username,
+          cover: t.artwork_url.replace('large', 't500x500'),
+        }));
       },
       onUpdated() {
         console.log('updated');
-      }
+      },
     };
   </script>
 </app>
