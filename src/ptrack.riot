@@ -1,11 +1,9 @@
 <ptrack>
-  <figure>
-    <img
-      src={ props.input.cover }
-      crossorigin="anonymous" />
+  <figure
+    id={ state.uri }
+    style={ `background-image: url('${ props.input.cover }')` }>
   </figure>
   <article
-    id={ state.uri }
     disabled={ state.disabled }>
       <h2>{ props.input.title }</h2>
       <h3>{ props.input.username }</h3>
@@ -20,49 +18,57 @@
       </button>
   </article>
   <style>
+    :host {
+        --figure-height: 20vh;
+        --figure-background-size: 80%;
+        --host-height: 50vh; 
+    }
     /* For phone devices */
     @media (min-width: 360px) {
       :host {
-        --figure-width: 100%;
-        --figure-margin: 0 0 0 0;
+        --figure-height: 60vh;
+        --figure-background-size: 90%;
+        --host-height: 100vh; 
       }
     }
     /* For tablet devices */
-    @media (min-width: 640px) {
+    @media (min-width: 720px) {
       :host {
         --figure-width: 40%;
-        --figure-margin: 0 16px 32px 16px;
+        --figure-background-size: 60%;
+        --figure-height: 80vh;
       }
       figure {
         float: left;
+        width: var(--figure-width);
       }
     }
 
     @media (min-width: 1024px) {
       :host {
-        --figure-margin: auto;
+        --figure-width: 100%;
+        --figure-background-size: 20%;
+        --figure-height: 40vh;
+        padding-top: 20vh;
+      
+      }
+      figure {
+        float: none;
       }
     }
     :host {
       display: block;
-      height: 100vh; 
+      height: var(--host-height);
     }
     figure {
       display: flex;
+      height: var(--figure-height);
+      background-attachment: fixed;
+      background-position: top;
+      /** background-repeat: no-repeat; **/
+      background-size: var(--figure-background-size);
     }
-    figure {
-      margin: var(--figure-margin);
-      width: var(--figure-width);
-    }
-    figure img { 
-      width: 100%;
-    }
-    article { 
-      width: 100%;
-    }
-    article p {
-      :--webit-filter: invert(100%);
-      filter: invert(100%);
+    article  {
     }
     article h2 {
       margin-top: 0;

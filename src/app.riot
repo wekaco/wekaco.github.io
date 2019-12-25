@@ -6,10 +6,31 @@
       onStreamReady={ onStreamReady } ></ptrack> 
   </section>
   <style>
-    :host h2, h3 {
-      color: white;
-      -webkit-filter: invert(100%);
-      filter: invert(100%);
+    :host {
+      --section-width: 100%;
+    }
+    @media (min-width: 360px) {
+      :host {
+        --section-width: 100%;
+      }
+    }
+    /* For tablet devices */
+    @media (min-width: 720px) {
+      :host {
+      }
+    }
+
+    @media (min-width: 1024px) {
+      :host {
+        --section-width: 80%;
+      }
+      section {
+        margin: auto;
+      }
+    }
+
+    section {
+      width: var(--section-width);
     }
   </style>
   <script>
