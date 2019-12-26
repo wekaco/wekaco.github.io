@@ -1,21 +1,12 @@
 <ptrack>
-  <figure
-    id={ state.uri }
-    style={ `background-image: url('${ props.input.cover }')` }>
-  </figure>
   <article
-    disabled={ state.disabled }>
+    class={ `${state.hide}` }>
+      <figure
+        id={ state.uri }
+        style={ `background-image: url('${ props.input.cover }')` }>
+      </figure>
       <h2>{ props.input.title }</h2>
       <h3>{ props.input.username }</h3>
-      <button
-        name="play"
-        onclick={ play }
-        disabled={ state.disabled }>Play
-      </button>
-      <button
-        name="stop"
-        onclick={ pause }>Stop
-      </button>
   </article>
   <style>
     :host {
@@ -46,17 +37,18 @@
 
     @media (min-width: 1024px) {
       :host {
-        --figure-width: 100%;
         --figure-background-size: 20%;
         --figure-height: 40vh;
         padding-top: 20vh;
+        --host-height: 100vh; 
       
       }
       figure {
         float: none;
+        width: auto;
       }
     }
-    :host {
+    :host article {
       display: block;
       height: var(--host-height);
     }
@@ -73,8 +65,8 @@
     article h2 {
       margin-top: 0;
     }
-    article[disabled] {
-      opacity: 0.6;
+    article.hide {
+      display: none;
     }
   </style>
   <script>
@@ -85,22 +77,29 @@
       return {
         state: {
           uri: null, 
-          disabled: 'disabled',
+          hide: 'hide',
         },
         onBeforeMount(props, state) {
-          state.uri = `tracks/${props.input.id}`;
+          state.uri = props.input.uri;
 
           const onStreamReady = props.onStreamReady || noop;
           this.root.addEventListener(SC_STREAM, onStreamReady);
 
-          SC.stream(state.uri).then( player => {
-            const detail = { player };
-            this.root
-              .dispatchEvent(new CustomEvent(SC_STREAM, { detail }));
+          SC.stream(state.uri)
+            .then( player => {
+              const detail = { uri: state.uri, player };
+              this.root
+                .dispatchEvent(new CustomEvent(SC_STREAM, { detail }));
 
-            this.update({ disabled: false });
+              this.update({ hide: '' });
+            })
+            .catch( err => {
+              const detail = { uri: state.uri, err };
+              this.root
+                .dispatchEvent(new CustomEvent(SC_STREAM, { detail }));
 
-          });
+              this.unmount(); 
+            });
         }
       };
     };

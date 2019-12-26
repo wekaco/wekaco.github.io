@@ -5,6 +5,17 @@
       input={ input }
       onStreamReady={ onStreamReady } ></ptrack> 
   </section>
+  <footer>
+      <button
+        name="play"
+        onclick={ play }
+        disabled={ state.disabled }>Play
+      </button>
+      <button
+        name="stop"
+        onclick={ pause }>Stop
+      </button>
+  </footer>
   <style>
     :host {
       --section-width: 100%;
@@ -32,6 +43,10 @@
     section {
       width: var(--section-width);
     }
+    footer {
+      position: fixed;
+      bottom: 0;
+    }
   </style>
   <script>
     import Nanobar from 'nanobar';
@@ -53,7 +68,7 @@
         state.articles = props.tracks
           .filter( t => [ 520565400, 555134337 ].indexOf(parseInt(t.id)) === -1)
           .map( t => ({
-            id: t.id,
+            uri: `tracks/${t.id}`,
             title: t.title,
             username: t.user.username,
             cover: t.artwork_url.replace('large', 't500x500'),
@@ -66,8 +81,13 @@
         console.log('updated');
       },
       onStreamReady(evt) {
-        const { id, player } = evt.detail;
-        this.state.streams.add(player);
+        const { uri, player, err } = evt.detail;
+        if (err) {
+          const i = this.state.articles.findIndex( a => a.uri === uri );
+          this.state.articles = this.state.articles.splice(i, 1);
+        } else {
+          this.state.streams.add(player);
+        }
 
         const p = this.state.streams.size / this.state.articles.length;
         this.state.progress.go(Math.floor(p * 100));
