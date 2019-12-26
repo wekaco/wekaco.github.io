@@ -1,12 +1,18 @@
 <ptrack>
-  <article
-    class={ `${state.hide}` }>
+  <article>
       <figure
         id={ state.uri }
         style={ `background-image: url('${ props.input.cover }')` }>
       </figure>
       <h2>{ props.input.title }</h2>
       <h3>{ props.input.username }</h3>
+      <iframe
+        id="widget-{ state.uri }"
+        scrolling="no"
+        class={ state.hide }
+        src={ state.url }
+        frameborder="no"
+        onload={ foo }></iframe>
   </article>
   <style>
     :host {
@@ -65,8 +71,11 @@
     article h2 {
       margin-top: 0;
     }
-    article.hide {
+    .hide {
+      visibility: hidden;
       display: none;
+      width: 0;
+      height: 0;
     }
   </style>
   <script>
@@ -78,28 +87,41 @@
         state: {
           uri: null, 
           hide: 'hide',
+          url: null,
         },
         onBeforeMount(props, state) {
           state.uri = props.input.uri;
+          const params = new URLSearchParams('auto_play=false&buying=false&liking=false&download=false&sharing=false&show_artwork=false&show_comments=false&show_playcount=false&show_user=false&hide_related=false&visual=false&start_track=0&callback=true');
 
+          params.set('url', props.input.permalink_url);
+          const url = new URL('https://w.soundcloud.com/player/');
+          url.search = params.toString();
+
+          state.url = url.toString();
+        },
+        foo() {
+          console.log('loaded');
+        },
+        onMounted(props, state) {
           const onStreamReady = props.onStreamReady || noop;
           this.root.addEventListener(SC_STREAM, onStreamReady);
 
-          SC.stream(state.uri)
-            .then( player => {
-              const detail = { uri: state.uri, player };
-              this.root
-                .dispatchEvent(new CustomEvent(SC_STREAM, { detail }));
+          const player = SC.Widget(this.root.querySelector('iframe'));
+          player.bind(SC.Widget.Events.READY, () => {
+            const detail = { uri: state.uri, player };
+            this.root
+              .dispatchEvent(new CustomEvent(SC_STREAM, { detail }));
+          });
+          player.bind(SC.Widget.Events.ERROR, (err) => {
+            const detail = {
+              uri: state.uri,
+              err: new Error(err.message, 'widget error')
+            };
+            this.root
+              .dispatchEvent(new CustomEvent(SC_STREAM, { detail }));
 
-              this.update({ hide: '' });
-            })
-            .catch( err => {
-              const detail = { uri: state.uri, err };
-              this.root
-                .dispatchEvent(new CustomEvent(SC_STREAM, { detail }));
-
-              this.unmount(); 
-            });
+            this.unmount(); 
+          });
         }
       };
     };

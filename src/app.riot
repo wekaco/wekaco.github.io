@@ -11,10 +11,6 @@
         onclick={ play }
         disabled={ state.disabled }>Play
       </button>
-      <button
-        name="stop"
-        onclick={ pause }>Stop
-      </button>
   </footer>
   <style>
     :host {
@@ -58,25 +54,6 @@
       }
       return a;
     }
-/**
-    state-change: when audio controller changes state (e.g. from pause to play). Possible values: 'playing', 'paused', 'loading', 'ended', 'error' or 'dead'
-    play: when play method is called
-    play-start: when playback actually starts, the first time
-    play-resume: when playback starts, the second time onwards
-    play-rejection: if a play request is rejected by the browser
-    pause: when playback is paused
-    finish: when sound is finished
-    seek: when seek method is called
-    seeked: when a seek completes
-    seek-rejection: when a seek is rejected for some reason
-    geo_blocked: when there's no available streams for a sound, as it is not allowed to be played in the user's territory.
-    buffering_start: when buffering starts
-    buffering_end: when buffering stops
-    audio_error: when an error occurs
-    time: when playback position is updated
-    no_streams: when we failed fetching stream information
-    no_protocol: when no supported protocol could be found
-    no_connection: when we failed to connect to an endpoint due to missing transport or request timeout**/
     export default {
       state: {
         progress: null,
@@ -84,21 +61,22 @@
         streams: new Map(),
         current: null,
         playlist: [],
+        disabled: 'disabled',
+        nextIn: null,
       },
       components: {
         PTrack
       },
       onBeforeMount(props, state) {
-        SC.initialize({
-          client_id: this.props.client_id
-        });
         state.articles = props.tracks
+          //.map( t => { console.log(t); return t; })
           .filter( t => [ 520565400, 555134337 ].indexOf(parseInt(t.id)) === -1)
           .map( t => ({
             uri: `tracks/${t.id}`,
             title: t.title,
             username: t.user.username,
             cover: t.artwork_url.replace('large', 't500x500'),
+            permalink_url: t.permalink_url,
           }));
       },
       onMounted(props, state) {
@@ -108,41 +86,53 @@
         console.log('updated');
       },
       onStreamReady(evt) {
+        let PREVIEW_MS = 30000;
         const { uri, player, err } = evt.detail;
         if (err) {
           const i = this.state.articles.findIndex( a => a.uri === uri );
           this.state.articles = this.state.articles.splice(i, 1);
         } else {
+          player.bind(SC.Widget.Events.PLAY, () => {
+            if (this.state.nextIn) {
+              clearTimeout(this.state.nextIn);
+            }
+            this.state.nextIn = setTimeout(() => {
+               this.stop();
+               this.play();
+            }, PREVIEW_MS);
+          });
+          player.bind(SC.Widget.Events.PLAY_PROGRESS, (evt) => {
+            const { currentPosition } = evt;
+            const p = Math.floor( (currentPosition * 100)/PREVIEW_MS );
+            this.state.progress.go(p);
+          });
           this.state.streams.set(uri, player);
+          if (this.state.disabled === 'disabled') {
+            this.update({ disabled: false });
+          }
         }
-
-        const p = this.state.streams.size / this.state.articles.length;
-        this.state.progress.go(Math.floor(p * 100));
-      },
-      play() {
-        // shuffle the playlist
-        if (this.state.playlist.length === 0) {
-          this.state.playlist = shuffle(this.state.articles.map( a => a.uri));
-        }
-        // scroll to article
-        const uri = this.state.playlist.pop();
-        window.location.hash = uri;
-
-        const stream = this.state.streams.get(uri);
-        stream.on('play-start', () => {
-          setTimeout(() => this.play(), 3000);
-        });
-        stream.on('time', console.log);
-        //attachHandlers(stream, this.state.progress);
-        stream.play();
-
-        this.state.current = { uri, stream };
+        const p = Math.floor( (this.state.streams.size * 100)/this.state.articles.length);
+        this.state.progress.go(p);
       },
       stop() {
         if (this.state.current) {
           this.state.current.stream.pause();
         }
-      }
+      },
+      play() {
+        // shuffle the playlist
+        if (this.state.playlist.length === 0) {
+          this.state.playlist = shuffle(Array.from(this.state.streams.keys()));
+        }
+        // scroll to article (TODO: human readable id here)
+        const uri = this.state.playlist.pop();
+        window.location.hash = uri;
+
+        const stream = this.state.streams.get(uri);
+        stream.play();
+
+        this.state.current = { uri, stream };
+      },
     };
   </script>
 </app>
