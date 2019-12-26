@@ -1,119 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>WKC013 | HARD TO FIND SPEED GARAGE</title>
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>WKC013 | HARD TO FIND SPEED GARAGE</title>
 
-  <meta property="og:url"                content="http://wekaco.github.io/" />
-  <meta property="og:type"               content="music.album" />
-  <meta property="og:title"              content="WKC013 | HARD TO FIND SPEED GARAGE" />
-  <meta property="og:description"        content="">
-  <meta property="og:image"              content="" />
-  <meta http-equiv="content-type"        content="text/html; charset=UTF-8">
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="og:url"                content="http://wekaco.github.io/" />
+    <meta name="og:type"               content="music.album" />
+    <meta name="og:title"              content="WKC013 | HARD TO FIND SPEED GARAGE" />
+    <meta name="og:description"        content="">
+    <meta name="og:image"              content="" />
+    <meta http-equiv="content-type"        content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <meta property="title"              content="" />
-  <meta property="description"        content="">
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="title"              content="" />
+    <meta name="description"        content="">
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <!--<link rel="stylesheet" href="css/normalize.css">-->
-  <!--<link rel="stylesheet" href="css/skeleton.css?ICBkHaMOPXs">-->
-  <link rel="stylesheet" href="css/custom.css?ICBkHaMOPXs">
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!--<link rel="stylesheet" href="css/normalize.css">-->
+    <!--<link rel="stylesheet" href="css/skeleton.css?ICBkHaMOPXs">-->
+    <link rel="stylesheet" href="css/custom.css?CBkHaMOPXs1">
 
-  <!-- Device motion capture experiment
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <!-- Latest compiled and minified plotly.js JavaScript -->
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
-<style>
-div.l {
-  left: 100px;
-  width: 640px;
-}
-div.m {
-  left: 50px;
-  width: 320px;
-}
-div.s {
-  left: 25px;
-  width: 160px;
-}
-div.obj {
-  position: relative;
-  float:left;
-  transform: perspective(20rem);
-}
-
-div.obj.z-4 {
-  transform: perspective(20rem) translateZ(4rem);
-}
-h1, h2 { 
-  padding-left: 1rem;
-}
-div.container {
-  width: 100%;
-  overflow: hidden;
-}
-ul.refs {
-  width: 60%;
-}
-</style>
-
-</head>
-<body class="light">
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div id="" class="container">
-    <div class="obj l" style="background-color: yellow;padding-bottom:20%;">
-      <h1>WKC013</h1>
-      <h2>Hard to find speed garage</h2>
-      <p>10" single sided record, mastered by Kitaro, lathe cut in Athens, Greece.</p>
-      <p>Total duration 9 minutes</p>
-      <ul class="refs">
-        <li>"...of a brilliant tension between making you dance and spanking your..."<br/><i>None</i></li>
-        <li>"...with his singularly evocative style of garage and heartbreaking vocals..."<br/><i>fake.news</i></li>
-        <li>"...in a fluid, tactile dance of dynamic contrasts between strong/light, sudden/restrained, and bound/free...", <i>Anonymous</i></li>
-      </ul>
-      <div>
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+      body {
+        font-weight: 400;
+        font-size: 16px;
+        font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      article {
+        --article-padding: 1rem;
+        padding-left: var(--article-padding);
+        padding-right: var(--article-padding);
+        background-color: yellow;
+        padding-bottom: calc(var(--article-padding) * 2.5);
+        padding-top: calc(var(--article-padding) * 0.5);
+      }
+      li {
+        font-style: italic;
+      }
+      figure {
+        background-color: skyblue;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 0;
+        /* */
+      }
+      h1, h2 {
+        margin: 0;
+        /* padding-right: calc(var(--article-padding) / 2); */
+      }
+      @media (min-width: 1024px) {
+        article {
+          --article-padding: 2rem;
+          width: 60%;
+        }
+        figure {
+          width: 50%;
+        }
+        main {
+          display: flex;
+          width: 60%;
+          margin: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Primary Page Layout
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <main class="container">
+      <article class="obj">
+        <header>
+          <h1>WKC013 / Hard to find speed garage</h1>
+          <p>10" single sided record, mastered by Kitaro, lathe cut in Athens, Greece.</p>
+        </header>
+        <section class="refs">
+          <p>Total duration 9 minutes:</p>
+          <ul>
+            <li>"...of a brilliant tension between making you dance..."</li>
+            <li>"...in a fluid, tactile dance of dynamic contrasts between strong/light, sudden/restrained, and bound/free..."</li>
+            <li>"...with his singularly evocative style of garage and heartbreaking vocals..."</li>
+          </ul>
+        </section>
+      </article>
+      <figure>
+        <img
+          type="image/jpeg"
+          src="images/wkc013/r001-013.jpg"
+          style="width: 100%;background-size:contain;"
+        />
+      </figure>
+      <aside>
         <input type="button" value="Play" class="play" />
         <input type="button" value="Stop" class="stop" />
-        <script src="js/player.js"></script>
+        <script src="dist/player.js"></script>
+      </aside>
+    </main>
+    <!--<div class="sticky">
+      <div class="container">
+        <a href="https://m.me/dmtrs.flaco">
+          <div class="ad gradient" style="opacity: 0.5">
+            &nbsp;
+          </div>
+        </a>
       </div>
-    </div>
-    <div id="main"
-        class="obj m z-4"
-        style="background-color: skyblue;">
-      <img
-        type="image/jpeg"
-        src="images/wkc013/r001-013.jpg"
-        style="width: 100%;background-size:contain;"
-      />
-    </div>
-  </div>
-  <!--<div class="sticky">
-    <div class="container">
-      <a href="https://m.me/dmtrs.flaco">
-        <div class="ad gradient" style="opacity: 0.5">
-          &nbsp;
-        </div>
-      </a>
-    </div>
-  </div>-->
-  <!--<script src="js/devicemotion.js"></script>-->
-  <!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-</body>
+    </div>-->
+    <!--<script src="js/devicemotion.js"></script>-->
+    <!-- End Document
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  </body>
 </html>
