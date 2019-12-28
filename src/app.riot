@@ -12,7 +12,7 @@
         disabled={ state.disabled }>Play
       </button>
       <button
-        name="stop"
+        name="pause"
         onclick={ pause }>Stop
       </button>
   </footer>
@@ -104,7 +104,7 @@
         this.state.progress.go(p);
       },
       play() {
-        this.stop();
+        this.pause();
         // shuffle the playlist
         if (this.state.playlist.length === 0) {
           this.state.playlist = shuffle(this.state.articles.map( a => a.uri));
@@ -126,7 +126,7 @@
 
         this.state.current = { uri, stream };
       },
-      stop() {
+      pause() {
         if (this.state.current) {
           this.state.current.stream.pause();
           this.state.progress.go(100);
