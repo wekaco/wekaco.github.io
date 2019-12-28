@@ -53,13 +53,8 @@
   <script>
     import Nanobar from 'nanobar';
     import PTrack from './ptrack.riot';
-    function shuffle(a) {
-      for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-          [a[i], a[j]] = [a[j], a[i]];
-      }
-      return a;
-    }
+    import { shuffle, truncateTags } from './utils';
+
     const PREVIEW_SPAN = 30000;
     export default {
       state: {
@@ -78,11 +73,14 @@
         });
         state.articles = props.tracks
           .filter( t => [ 520565400, 555134337 ].indexOf(parseInt(t.id)) === -1)
+          //.map( t => { console.log(t); return t; })
           .map( t => ({
             uri: `tracks/${t.id}`,
             title: t.title,
             username: t.user.username,
             cover: t.artwork_url.replace('large', 't500x500'),
+            tags: truncateTags([ t.genre ].concat(t.tag_list.split('\"'))),
+            duration: t.duration
           }));
       },
       onMounted(props, state) {

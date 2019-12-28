@@ -7,6 +7,9 @@
       </figure>
       <h2>{ props.input.title }</h2>
       <h3>{ props.input.username }</h3>
+      <ul>
+        <li each={ tag in props.input.tags}>{tag}</li>
+      </ul>
   </article>
   <style>
     :host {
