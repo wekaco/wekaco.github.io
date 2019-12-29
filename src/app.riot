@@ -1,7 +1,7 @@
 <app>
   <section>
     <ptrack
-      each={ input in state.articles }
+      each={ input in Array.from(state.articles.values()) }
       input={ input }
       onStreamReady={ onStreamReady } ></ptrack> 
   </section>
@@ -72,18 +72,20 @@
         SC.initialize({
           client_id: this.props.client_id
         });
-        state.articles = props.tracks
+        state.articles =  new Map(props.tracks
           .filter( t => [ 520565400, 555134337 ].indexOf(parseInt(t.id)) === -1)
           //.map( t => { console.log(t); return t; })
-          .map( t => ({
+          .map( t => ([ `tracks/${t.id}`, {
             uri: `tracks/${t.id}`,
             title: t.title,
             username: t.user.username,
             cover: t.artwork_url.replace('large', 't500x500'),
-            tags: [ t.genre ].concat(t.tag_list.split('\"'))
+            tags: [ t.genre ]
+              .concat(t.tag_list.split('\"'))
               .filter(t=>t && t.trim().length>0),
             duration: t.duration,
-          }));
+          }]))
+        );
       },
       onMounted(props, state) {
         state.progress = new Nanobar();
@@ -94,38 +96,40 @@
       onStreamReady(evt) {
         const { uri, player, err } = evt.detail;
         if (err) {
-          const i = this.state.articles.findIndex( a => a.uri === uri );
-          this.state.articles = this.state.articles.splice(i, 1);
+          this.state.articles.delete(uri);
         } else {
           player.on('play-start', () => {
             this.state.nextTimeout = setTimeout(() => this.play(), PREVIEW_SPAN);
           });
           player.on('time', (time) => {
-            const p = Math.floor((time*100)/PREVIEW_SPAN);
+            const rel = time-this.state.current.cue;
+            const p = Math.floor((rel*100)/PREVIEW_SPAN);
             this.state.progress.go(p);
           });
           this.state.streams.set(uri, player);
         }
-        const p = Math.floor((this.state.streams.size*100)/this.state.articles.length);
+        const p = Math.floor((this.state.streams.size*100)/this.state.articles.size);
         this.state.progress.go(p);
       },
       play() {
         this.pause();
         // shuffle the playlist
         if (this.state.playlist.length === 0) {
-          this.state.playlist = shuffle(this.state.articles.map( a => a.uri));
+          this.state.playlist = shuffle(Array.from(this.state.articles.keys()));
         }
-        // scroll to article
         const uri = this.state.playlist.pop();
+        const stream = this.state.streams.get(uri);
+        const cue =  Math.floor(
+          Math.random()*(this.state.articles.get(uri).duration-PREVIEW_SPAN)
+        );
+        this.state.current = { uri, stream, cue };
+
+        // scroll to article
         window.location.hash = uri;
 
-        const stream = this.state.streams.get(uri);
-        //attachHandlers(stream, this.state.progress);
         stream.play();
-        const cue =  Math.floor(Math.random()*(t.duration-PREVIEW_SPAN));
-        stream.seek(100).catch(console.log);
+        stream.seek(cue);
 
-        this.state.current = { uri, stream };
       },
       pause() {
         if (this.state.current) {
