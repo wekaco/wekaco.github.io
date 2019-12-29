@@ -80,7 +80,7 @@
             title: t.title,
             username: t.user.username,
             cover: t.artwork_url.replace('large', 't500x500'),
-            tags: [ t.genre ].concat(t.tag_list.split('\"')).filter(t=>t),
+            tags: [ t.genre ].concat(t.tag_list.split('\"')).filter(t=>t && t.trim().length>0),
             duration: t.duration
           }));
       },
