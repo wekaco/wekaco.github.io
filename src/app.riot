@@ -80,8 +80,9 @@
             title: t.title,
             username: t.user.username,
             cover: t.artwork_url.replace('large', 't500x500'),
-            tags: [ t.genre ].concat(t.tag_list.split('\"')).filter(t=>t && t.trim().length>0),
-            duration: t.duration
+            tags: [ t.genre ].concat(t.tag_list.split('\"'))
+              .filter(t=>t && t.trim().length>0),
+            duration: t.duration,
           }));
       },
       onMounted(props, state) {
@@ -121,6 +122,8 @@
         const stream = this.state.streams.get(uri);
         //attachHandlers(stream, this.state.progress);
         stream.play();
+        const cue =  Math.floor(Math.random()*(t.duration-PREVIEW_SPAN));
+        stream.seek(100).catch(console.log);
 
         this.state.current = { uri, stream };
       },
