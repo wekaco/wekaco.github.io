@@ -1,4 +1,4 @@
-const { shuffle, truncateTags } = require('../../src/utils');
+const { shuffle } = require('../../src/utils');
 const test = require('tape');
 
 test('shuffle should shuffle an array', (assert) => {
@@ -8,12 +8,4 @@ test('shuffle should shuffle an array', (assert) => {
   const shuffled = shuffle(actual);
   assert.equals(actual.length, shuffled.length);
   assert.notDeepEquals(actual, shuffled);
-});
-
-test('truncateTags should return array without "duplicate" tags', (assert) => {
-  assert.plan(1);
-
-  const actual = truncateTags([ 'Dancehall', 'Dancehall ragga', 'electronic' ]);
-  const expected = [ 'Dancehall ragga', 'electronic' ]; 
-  assert.deepEquals(actual, expected);
 });

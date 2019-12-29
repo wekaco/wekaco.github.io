@@ -53,7 +53,7 @@
   <script>
     import Nanobar from 'nanobar';
     import PTrack from './ptrack.riot';
-    import { shuffle, truncateTags } from './utils';
+    import { shuffle } from './utils';
 
     const PREVIEW_SPAN = 30000;
     export default {
@@ -63,6 +63,7 @@
         streams: new Map(),
         current: null,
         playlist: [],
+        nextTimeout: null,
       },
       components: {
         PTrack
@@ -79,7 +80,7 @@
             title: t.title,
             username: t.user.username,
             cover: t.artwork_url.replace('large', 't500x500'),
-            tags: truncateTags([ t.genre ].concat(t.tag_list.split('\"'))),
+            tags: [ t.genre ].concat(t.tag_list.split('\"')).filter(t=>t),
             duration: t.duration
           }));
       },
@@ -95,9 +96,15 @@
           const i = this.state.articles.findIndex( a => a.uri === uri );
           this.state.articles = this.state.articles.splice(i, 1);
         } else {
+          player.on('play-start', () => {
+            this.state.nextTimeout = setTimeout(() => this.play(), PREVIEW_SPAN);
+          });
+          player.on('time', (time) => {
+            const p = Math.floor((time*100)/PREVIEW_SPAN);
+            this.state.progress.go(p);
+          });
           this.state.streams.set(uri, player);
         }
-
         const p = Math.floor((this.state.streams.size*100)/this.state.articles.length);
         this.state.progress.go(p);
       },
@@ -112,13 +119,6 @@
         window.location.hash = uri;
 
         const stream = this.state.streams.get(uri);
-        stream.on('play-start', () => {
-          setTimeout(() => this.play(), PREVIEW_SPAN);
-        });
-        stream.on('time', (time) => {
-          const p = Math.floor((time*100)/PREVIEW_SPAN);
-          this.state.progress.go(p);
-        });
         //attachHandlers(stream, this.state.progress);
         stream.play();
 
@@ -127,6 +127,7 @@
       pause() {
         if (this.state.current) {
           this.state.current.stream.pause();
+          clearTimeout(this.state.nextTiemout);
           this.state.progress.go(100);
         }
       }

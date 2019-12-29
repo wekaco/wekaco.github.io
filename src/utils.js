@@ -7,23 +7,4 @@ function shuffle(orig) {
   return a;
 }
 
-function truncateTags(tags) {
-  const _internal = (tags) => {
-    if (tags.length < 2) {
-      return tags;
-    }
-    const tail = tags;
-    const head = tail.shift();
-    
-    let keep = [ head ];
-    const i = tail.findIndex( e => e.indexOf(head) > -1);
-    if ( i > -1 && head.length < tail[i].length) {
-      keep = [ tail[i] ];
-      tail.splice(i,1);
-    }
-    return keep.concat(_internal(tail));
-  };
-  return _internal(tags.sort()).sort();
-}
-
-module.exports = { shuffle, truncateTags };
+module.exports = { shuffle };
