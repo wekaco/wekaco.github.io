@@ -28,12 +28,12 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <!--<link rel="stylesheet" href="css/normalize.css">-->
     <!--<link rel="stylesheet" href="css/skeleton.css?ICBkHaMOPXs">-->
-    <link rel="stylesheet" href="css/custom.css?CBkHaMOPXs1">
+    <!--<link rel="stylesheet" href="css/custom.css?CBkHaMOPXs1">-->
 
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <style>
+    <!--<style>
       body {
         font-weight: 400;
         font-size: 16px;
@@ -81,7 +81,30 @@
           margin: auto;
         }
       }
-    </style>
+    </style>-->
+<style>
+
+/* Element | http://127.0.0.1:8080/ */
+
+/* .container > figure:nth-child(2) > img:nth-child(1) { */
+article figure img {
+  max-width: 640px;
+}
+
+/* Element | http://127.0.0.1:8080/ */
+
+body {
+  font-size: 18px;
+  color: #35415b;
+  background-color: #c3d1dc;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Inline #0 | http://127.0.0.1:8080/ */
+
+img {
+}
+</style>
   </head>
   <body>
     <!-- Primary Page Layout
@@ -92,6 +115,13 @@
           <h1>WKC013 / Hard to find speed garage</h1>
           <p>10" single sided record, mastered by Kitaro, lathe cut in Athens, Greece.</p>
         </header>
+        <figure>
+          <img
+            type="image/jpeg"
+            src="images/wkc013/r001-013_alter.jpg"
+            style="width: 100%;background-size:contain;"
+          />
+        </figure>
         <section class="refs">
           <p>Total duration 9 minutes:</p>
           <ul>
@@ -101,13 +131,6 @@
           </ul>
         </section>
       </article>
-      <figure>
-        <img
-          type="image/jpeg"
-          src="images/wkc013/r001-013.jpg"
-          style="width: 100%;background-size:contain;"
-        />
-      </figure>
       <aside>
         <input type="button" value="Play" class="play" />
         <input type="button" value="Stop" class="stop" />
