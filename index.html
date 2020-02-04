@@ -110,18 +110,45 @@ img {
     <!-- Primary Page Layout
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <main class="container">
+      <style>
+      main.container {
+        max-width: 728px;
+        margin: 0 auto;
+      }
+      </style>
       <article class="obj">
         <header>
+          <figure class="sponsored">
+            <video autoplay loop width="728">
+              <source src="data/leader_hd.mp4" type="video/mp4">
+              Oops!
+            </video>
+            <figcaption>Sponsored</figcaption>
+          </figure>
+          <style>
+          header figure.sponsored {
+            margin: 0;
+            padding: 10px 40px 10px 40px;
+          }
+          figure.sponsored {
+            color: #35415b;
+          }
+          figure.sponsored video {
+            border: 1px solid #35415b;
+            max-width: 100%;
+          }
+          figure.sponsored figcaption { 
+            font-size: 0.6rem;
+          }
+          @media (max-width: 468px) {
+            header figure.sponsored  {
+              padding: 0;
+            }
+          }
+          </style>
           <h1>WKC013 / Hard to find speed garage</h1>
           <p>10" single sided record, mastered by Kitaro, lathe cut in Athens, Greece.</p>
         </header>
-        <figure>
-          <img
-            type="image/jpeg"
-            src="images/wkc013/r001-013_alter.jpg"
-            style="width: 100%;background-size:contain;"
-          />
-        </figure>
         <section class="refs">
           <p>Total duration 9 minutes:</p>
           <ul>
@@ -130,6 +157,13 @@ img {
             <li>"...with his singularly evocative style of garage and heartbreaking vocals..."</li>
           </ul>
         </section>
+        <figure>
+          <img
+            type="image/jpeg"
+            src="images/wkc013/r001-013_alter.jpg"
+            style="background-size:cover;"
+          />
+        </figure>
       </article>
       <aside>
         <input type="button" value="Play" class="play" />
