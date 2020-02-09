@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
 
     <!-- Basic Page Needs
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta charset="utf-8">
     <title>WKC013 | HARD TO FIND SPEED GARAGE</title>
 
-    <meta name="og:url"                content="http://wekaco.github.io/" />
-    <meta name="og:type"               content="music.album" />
-    <meta name="og:title"              content="WKC013 | HARD TO FIND SPEED GARAGE" />
-    <meta name="og:description"        content="">
-    <meta name="og:image"              content="" />
-    <meta http-equiv="content-type"        content="text/html; charset=UTF-8">
-    
+    <meta name="og:url" content="http://wekaco.github.io/" />
+    <meta name="og:type" content="music.album" />
+    <meta name="og:title" content="WKC013 | HARD TO FIND SPEED GARAGE" />
+    <meta name="og:description" content="">
+    <meta name="og:image" content="" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <meta name="title"              content="" />
-    <meta name="description"        content="">
+    <meta name="title" content="" />
+    <meta name="description" content="">
     <!-- Mobile Specific Metas
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,162 +27,320 @@
 
     <!-- CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <!--<link rel="stylesheet" href="css/normalize.css">-->
-    <!--<link rel="stylesheet" href="css/skeleton.css?ICBkHaMOPXs">-->
-    <!--<link rel="stylesheet" href="css/custom.css?CBkHaMOPXs1">-->
+    <style>
+      /** generic **/
+      body {
+        font-size: 18px;
+        background-color: #c3d1dc;
+        font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      .uppercase {
+        text-transform: uppercase;
+      }
+      #v2 table th.text-center, #v2 table td.text-center {
+        text-align: center;
+      }
+      /** article > header **/
+      #v2 article header span {
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        padding: 0 0.4em 0 0.4em;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+      #v2 header {
+        padding: 0.6em 0.2em 0.4em 0.2em;
+        line-height: 2rem;
+        display:flex;
+        align-items: baseline;
+        justify-content: center;
+      }
+      #v2 header h1, #v2 header h2, #v2 header h3 {
+        color: red;
+      }
+      /** header > figure.sponsored **/
+      header figure.sponsored {
+        margin: 0;
+        padding: 10px 40px 10px 40px;
+      }
+      figure.sponsored {
+        color: #35415b;
+      }
+      figure.sponsored video {
+        border: 1px solid #35415b;
+        max-width: 100%;
+      }
+      figure.sponsored figcaption { 
+        font-size: 0.6rem;
+      }
+      @media (max-width: 468px) {
+        header figure.sponsored  {
+          padding: 0;
+        }
+      }
+      /** section > table **/
+      #v2 section {
+        display: flex;
+      }
+      #v2 section table, #v2 footer table {
+        font-size: 12px;
+        border-collapse: collapse;
+      }
+      #v2 section table th {
+        background-color: #71F44E;
+        border-color: black;
+        border-width: 1px;
+        border-style: solid;
+        font-weight: bold;
+        padding: 4px;
+        text-align: start;
+      }
+      #v2 section table td {
+        border-color: black;
+        border-width: 1px;
+        border-style: solid;
+        padding: 4px;
+      }
 
+      /** table **/
+      #v2 table tbody td.store {
+        background-color: white;
+      }
+      #v2 table tbody th.store {
+        background-color: #FF6666;
+        text-align: center;
+      }
+      #v2 table tbody td.store a {
+        display: block;
+        min-height: 2rem;
+        min-width: 7rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+      #v2 table tbody td.price {
+        font-weight: bold;
+        font-size: 14px;
+        color: black;
+        text-align: center;
+      }
+      #v2 table tbody td.price.gbp, #v2 table tbody th.gbp {
+        background-color: #3399FF;
+        text-align: center;
+      }
+      #v2 table tbody td.price.eur, #v2 table tbody th.eur {
+        background-color: #33FF33;
+        text-align: center;
+      }
+      .listenmp3  {
+        width:4rem;
+        height:4rem;
+        background-color:red;
+        display:block;
+        mask:url('images/Dft8K.gif') top left / cover;
+      }
+      /* table moreinfo */
+      #v2 section table.moreinfo th {
+        background-color: #FF6666;
+        line-height: 1.6rem;
+      }
+      #v2 section table.moreinfo td {
+        background-color: #FFE6E6;
+        vertical-align: top;
+      }
+      #v2 footer table {
+        font-size: 0.66rem;
+      }
+      #v2 footer table td {
+        background-color: #D7DAF8;
+        padding: 3px;
+        border: black solid 1px;
+      }
+      #v2 footer table th {
+        background-color: darkblue;
+        color: yellow;
+        text-align: center;
+        color: #ffff00;
+        border: black solid 1px;
+        padding: 3px;
+        font-weight: bold;
+      }
+      #v2 footer h4 {
+        font-size: 14px;
+        font-weight: bold;
+        padding: 5px;
+        text-align: center;
+        color: red;
+      }
+    </style>
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <!--<style>
-      body {
-        font-weight: 400;
-        font-size: 16px;
-        font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      }
-      article {
-        --article-padding: 1rem;
-        padding-left: var(--article-padding);
-        padding-right: var(--article-padding);
-        background-color: yellow;
-        padding-bottom: calc(var(--article-padding) * 2.5);
-        padding-top: calc(var(--article-padding) * 0.5);
-      }
-      li {
-        font-style: italic;
-      }
-      figure {
-        background-color: skyblue;
-        width: 100%;
-        margin-left: 0;
-        margin-top: 0;
-        /* */
-      }
-      h1, h2 {
-        margin: 0;
-        /* padding-right: calc(var(--article-padding) / 2); */
-      }
-      @media (min-width: 640px) {
-        main {
-          margin-left: 4rem;
-          margin-right: 4rem;
-        }
-      }
-      @media (min-width: 860px) {
-        article {
-          --article-padding: 2rem;
-          width: 60%;
-        }
-        figure {
-          width: 50%;
-        }
-        main {
-          display: flex;
-          width: 76%;
-          margin: auto;
-        }
-      }
-    </style>-->
-<style>
+</head>
 
-/* Element | http://127.0.0.1:8080/ */
-
-/* .container > figure:nth-child(2) > img:nth-child(1) { */
-article figure img {
-  max-width: 640px;
-}
-
-/* Element | http://127.0.0.1:8080/ */
-
-body {
-  font-size: 18px;
-  color: #35415b;
-  background-color: #c3d1dc;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-/* Inline #0 | http://127.0.0.1:8080/ */
-
-img {
-}
-</style>
-  </head>
-  <body>
+<body>
     <!-- Primary Page Layout
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <main class="container">
-      <style>
-      main.container {
-        max-width: 728px;
-        margin: 0 auto;
-      }
-      </style>
-      <article class="obj">
-        <header>
-          <figure class="sponsored">
-            <video autoplay loop width="728">
-              <source src="data/leader_hd.mp4" type="video/mp4">
-              Oops!
-            </video>
-            <figcaption>Sponsored</figcaption>
-          </figure>
-          <style>
-          header figure.sponsored {
-            margin: 0;
-            padding: 10px 40px 10px 40px;
-          }
-          figure.sponsored {
-            color: #35415b;
-          }
-          figure.sponsored video {
-            border: 1px solid #35415b;
-            max-width: 100%;
-          }
-          figure.sponsored figcaption { 
-            font-size: 0.6rem;
-          }
-          @media (max-width: 468px) {
-            header figure.sponsored  {
-              padding: 0;
-            }
-          }
-          </style>
-          <h1>WKC013 / Hard to find speed garage</h1>
-          <p>10" single sided record, mastered by Kitaro, lathe cut in Athens, Greece.</p>
-        </header>
-        <section class="refs">
-          <p>Total duration 9 minutes:</p>
-          <ul>
-            <li>"...of a brilliant tension between making you dance and spanking your..."</li>
-            <li>"...a fluid, tactile dance of dynamic contrasts between strong/light, sudden/restrained, and bound/free..."</li>
-            <li>"...with his singularly evocative style of garage and heartbreaking vocals..."</li>
-          </ul>
-        </section>
-        <figure>
-          <img
-            type="image/jpeg"
-            src="images/wkc013/r001-013_alter.jpg"
-            style="background-size:cover;"
-          />
+    <main id="v2" class="container">
+      <header>
+        <figure class="sponsored">
+          <video autoplay loop width="728">
+            <source src="data/leader_hd.mp4" type="video/mp4"></source>Oops!
+          </video>
+          <figcaption>Sponsored</figcaption>
         </figure>
-      </article>
-      <aside>
-        <input type="button" value="Play" class="play" />
-        <input type="button" value="Stop" class="stop" />
-        <script src="dist/player.js"></script>
-      </aside>
+        </header>
+        <article>
+          <header>
+            <h1>Hard to find speed garage (HTFSG)</h1>
+            <span>by</span><h2>DMTRS WE FLACO</h2>
+            <span>on</span><h3>WKC</h3>
+          </header>
+          <section>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Article Number</th>
+                  <td>WKC013</td>
+                  <th>Copies no.</th>
+                  <td>15 (Limited edition)</td>
+                  <th>In stock</th>
+                  <td style="color: green;font-size:1rem;">☑ yes</td>
+                </tr>
+                <tr>
+                  <th>Artist or Group</th>
+                  <td class="uppercase" colspan="5"><a href="">Dmtrs We Flaco</a></td>
+                </tr>
+                <tr>
+                    <th>Record Title</th>
+                    <td colspan="5">Hard to find speed garage (HTFSG)</td>
+                </tr>
+                <tr>
+                    <th>Record Label</th>
+                    <td class="uppercase" colspan="5"><a href="">WKC</a></td>
+                </tr>
+                <tr>
+                    <th>Music genre</th>
+                    <td class="uppercase" colspan="5">Speed Garage / Digital read errors / Gabba</td>
+                </tr>
+                <tr>
+                    <th>Format</th>
+                    <td class="uppercase" colspan="5">Lathe cut 10", single sided</td>
+                </tr>
+                <tr>
+                    <th>Year of release</th>
+                    <td>2020</td>
+                    <th>Release Date</th>
+                    <td><b>-</b></td>
+                    <th>Availability Status</th>
+                    <td>Pre-Order</td>
+                </tr>
+                <tr>
+                    <th>Comments</th>
+                    <td colspan="5">Master by Kitaro at Schnittstelle, Mastering &amp; Vinylschnitt / Cut by Josef Helmet at LoFi Records</td>
+                </tr>
+              </tbody>
+            </table>
+            <aside>
+              <div>
+                <a href=".mp3">
+                  <span  class="listenmp3">&nbsp;</span>
+                  Listen to MP3
+                </a>
+              </div>
+              <div>
+                <a href=""><img src="images/buynowlrg.jpg" alt="Add to Basket" width="75" height="40" border="0"></a>
+              </div>
+              <div>
+                <a href=""><img src="images/tellafriend.gif" alt="Tell a Friend about this track" width="75" height="40" border="0"></a>
+              </div>
+            </aside>
+          </section>
+          <section>
+            <table>
+              <tr>
+                <th rowspan="4">Selling Price</th>
+                <th class="gbp">Sterling</th>
+                <th class="eur">Euros</th>
+                <th class="store">Available at</th>
+              </tr>
+              <tr>
+                <td class="price gbp">£6.00 GBP</td>
+                <td class="price eur">8,69€ EUR</td>
+                <td class="store"><a 
+                  style="background-image: url('images/discogs-logo.svg')"
+                  href=""></a></td>
+              </tr>
+              <tr>
+                <td class="price gbp">-</td>
+                <td class="price eur">8,69€ EUR</td>
+                <td class="store" style="background-color: black;"><a
+                  style="background-image: url('images/pitchathens.jpg'); background-size: cover;"
+                  href=""></a></td>
+              </tr>
+              <tr>
+                <td class="price gbp">£6.00 GBP</td>
+                <td class="price eur">-</td>
+                <td class="store"><a
+                  style="background-image: url('images/rwdfwd.png')"
+                  href=""></a></td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <table class="moreinfo">
+              <tbody>
+                <tr>
+                  <th>More info about this title including track listing if available</th>
+                  <th class="text-center">Artwork for this track ( if available )</th>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Total duration 9 minutes:</p>
+                    <ul>
+                      <li>"...of a brilliant tension between making you dance and spanking your..."</li>
+                      <li>"...a fluid, tactile dance of dynamic contrasts between strong/light, sudden/restrained, and bound/free..."</li>
+                      <li>"...with his singularly evocative style of garage and heartbreaking vocals..."</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <figure style="margin:0;">
+                      <img src="images/wkc013/r001-013_alter.jpg" style="background-size:cover;" alt="Hard to find speed garage (HTFS) by DMTRS WE FLACO ATHENS 10&quot; SPEED GARAG  £{ price } WKC013" />
+                    </figure>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <footer>
+          <h4>People who bought this also bought:</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Article No.</th>
+                  <th>Artist or Group</th>
+                  <th>Record Title</th>
+                  <th>Record Label</th>
+                  <th>Comments</th>
+                  <th>Year</th>
+                  <th>Format</th>
+                  <th>MP3</th>
+                </tr>
+              </thead>
+              <tbody>
+                <td class="text-center"><a href="">WKC012</a></td>
+                <td class="uppercase">Dmtrs We Flaco</td>
+                <td>Download and burn on a CD (we:flaco mashup)</td>
+                <td class="text-center">WKC</td>
+                <td>A$AP ROCKY FEAT. FKA TWIGS / GRIFFIT VIGO / HEVI / DJ LAG</td>
+                <td class="text-center">2019</td>
+                <td class="uppercase text-center">Lathe cut 7"</td>
+                <td class="uppercase text-center"><a class="sc" href="https://soundcloud.com/dmtrsflaco/wkc012-lathe-cut-rip">Play clip</a></td>
+              </tbody>
+            </table>
+          </footer>
     </main>
-    <!--<div class="sticky">
-      <div class="container">
-        <a href="https://m.me/dmtrs.flaco">
-          <div class="ad gradient" style="opacity: 0.5">
-            &nbsp;
-          </div>
-        </a>
-      </div>
-    </div>-->
-    <!--<script src="js/devicemotion.js"></script>-->
     <!-- End Document
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  </body>
+</body>
 </html>
