@@ -39,17 +39,20 @@
         --primary-color: red;
         --rad-color-1: #3399FF;
         --rad-color-2: #33FF33;
-        --secondary-bg-color: white;
+        --dark-bg-color: white;
         --secondary-color: #71F44E;
+        --dark-color: black;
       }
       /** generic **/
       body {
         font-size: 18px;
-        background-color: var(--primary-bg-color);
         font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
       }
       .uppercase {
         text-transform: uppercase;
+      }
+      #v2 main {
+        color: var(--dark-color);
       }
       #v2 table th.text-center, #v2 table td.text-center {
         text-align: center;
@@ -93,16 +96,30 @@
         }
       }
       /** section > table **/
-      #v2 section {
+      #v2 section, #v2 section aside {
         display: flex;
       }
-      #v2 section table, #v2 footer table {
+      @media (max-width: 468px) {
+        #v2 section {
+          flex-direction: column;
+        }
+      }
+      #v2 main {
+        background-color: var(--dark-bg-color);
+      }
+      #v2 section table {
+        padding: 2rem;
+      }
+      #v2 section aside, #v2 section table, #v2 footer table {
+        border: 1px solid var(--light-color);
+        background-color: var(--primary-bg-color);
         font-size: 12px;
         border-collapse: collapse;
       }
       #v2 section table th {
-        background-color: var(--secondary-color);
+        background-color: var(--rad-color-2);
         border-color: var(--light-color);
+        color: var(--light-color);
         border-width: 1px;
         border-style: solid;
         font-weight: bold;
@@ -110,7 +127,7 @@
         text-align: start;
       }
       #v2 section table td {
-        border-color: var(--light-color);
+        border-color: var(--dark-color);
         border-width: 1px;
         border-style: solid;
         padding: 4px;
@@ -118,7 +135,7 @@
 
       /** table **/
       #v2 table tbody td.store {
-        background-color: var(--secondary-bg-color);
+        background-color: var(--dark-bg-color);
       }
       #v2 table tbody th.store {
         background-color: var(--attention-color);
