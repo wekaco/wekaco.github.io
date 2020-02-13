@@ -30,11 +30,22 @@
     <style>
       :root {
         --primary-color: red;
+        --secondary-color: #71F44E;
+        --primary-bg-color: #c3d1dc;
+        --secondary-bg-color: white;
+        --light-color: #35415b;
+        --attention-color: #FF6666;
+        --attention-bg-color: #FFE6E6;
+        --rad-color-1: #3399FF;
+        --rad-color-2: #33FF33;
+        --emph-bg-color: darkblue;
+        --emph-color: #ffff00;
+        --light-bg-color: #D7DAF8;
       }
       /** generic **/
       body {
         font-size: 18px;
-        background-color: #c3d1dc;
+        background-color: var(--primary-bg-color);
         font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
       }
       .uppercase {
@@ -67,10 +78,10 @@
         padding: 10px 40px 10px 40px;
       }
       figure.sponsored {
-        color: #35415b;
+        color: var(--light-color);
       }
       figure.sponsored video {
-        border: 1px solid #35415b;
+        border: 1px solid var(--light-color);
         max-width: 100%;
       }
       figure.sponsored figcaption { 
@@ -90,8 +101,8 @@
         border-collapse: collapse;
       }
       #v2 section table th {
-        background-color: #71F44E;
-        border-color: black;
+        background-color: var(--secondary-color);
+        border-color: var(--light-color);
         border-width: 1px;
         border-style: solid;
         font-weight: bold;
@@ -99,7 +110,7 @@
         text-align: start;
       }
       #v2 section table td {
-        border-color: black;
+        border-color: var(--light-color);
         border-width: 1px;
         border-style: solid;
         padding: 4px;
@@ -107,10 +118,10 @@
 
       /** table **/
       #v2 table tbody td.store {
-        background-color: white;
+        background-color: var(--secondary-bg-color);
       }
       #v2 table tbody th.store {
-        background-color: #FF6666;
+        background-color: var(--attention-color);
         text-align: center;
       }
       #v2 table tbody td.store a {
@@ -124,18 +135,18 @@
       #v2 table tbody td.price {
         font-weight: bold;
         font-size: 14px;
-        color: black;
+        color: var(--light-color);
         text-align: center;
       }
       #v2 table tbody td.price.gbp, #v2 table tbody th.gbp {
-        background-color: #3399FF;
+        background-color: var(--rad-color-1);
         text-align: center;
       }
       #v2 table tbody td.price.eur, #v2 table tbody th.eur {
-        background-color: #33FF33;
+        background-color: var(--rad-color-2);
         text-align: center;
       }
-      .listenmp3  {
+      #v2 .listenmp3  {
         width:4rem;
         height:4rem;
         background-color: var(--primary-color);
@@ -144,27 +155,27 @@
       }
       /* table moreinfo */
       #v2 section table.moreinfo th {
-        background-color: #FF6666;
+        background-color: var(--attention-color);
         line-height: 1.6rem;
       }
       #v2 section table.moreinfo td {
-        background-color: #FFE6E6;
+        background-color: var(--attention-bg-color);
         vertical-align: top;
       }
       #v2 footer table {
         font-size: 0.66rem;
       }
       #v2 footer table td {
-        background-color: #D7DAF8;
+        background-color: var(--light-bg-color);
         padding: 3px;
-        border: black solid 1px;
+        border: var(--light-color) solid 1px;
       }
       #v2 footer table th {
-        background-color: darkblue;
+        background-color: var(--emph-bg-color);
         color: yellow;
         text-align: center;
-        color: #ffff00;
-        border: black solid 1px;
+        color: var(--emph-color);
+        border: var(--light-color) solid 1px;
         padding: 3px;
         font-weight: bold;
       }
@@ -277,7 +288,7 @@
               <tr>
                 <td class="price gbp">-</td>
                 <td class="price eur">8,69€ EUR</td>
-                <td class="store" style="background-color: black;"><a
+                <td class="store" style="background-color: var(--light-color);"><a
                   style="background-image: url('images/pitchathens.jpg'); background-size: cover;"
                   href=""></a></td>
               </tr>
