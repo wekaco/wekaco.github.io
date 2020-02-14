@@ -132,7 +132,6 @@
         border-style: solid;
         padding: 4px;
       }
-
       /** table **/
       #v2 table tbody td.store {
         background-color: var(--dark-bg-color);
@@ -207,6 +206,23 @@
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="images/favicon.png">
+    <script>
+      document.addEventListener('readystatechange', ready => {
+        switch(ready.target.readyState) {
+          case 'interactive':
+            document.querySelectorAll('td > a').forEach( a => {
+              a.addEventListener('click', e => {
+                e.stopPropagation();
+              });
+              a.parentElement.style.cursor = 'pointer';
+              a.parentElement.addEventListener('click', click => {
+                a.click();
+              });
+            });
+            break;
+        }
+      });
+    </script>
 </head>
 
 <body>
