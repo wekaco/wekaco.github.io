@@ -108,11 +108,14 @@
         background-color: var(--dark-bg-color);
       }
       #v2 section table {
-        padding: 2rem;
+        border: 0;
       }
-      #v2 section aside, #v2 section table, #v2 footer table {
-        border: 1px solid var(--light-color);
+      #v2 section aside {
         background-color: var(--primary-bg-color);
+        border: 1px solid var(--light-color);
+      }
+     #v2 section table, #v2 footer table {
+        background-color: var(--light-bg-color);
         font-size: 12px;
         border-collapse: collapse;
       }
@@ -170,6 +173,10 @@
         mask:url('images/Dft8K.gif') top left / cover;
       }
       /* table moreinfo */
+      #v2 section table.moreinfo {
+        display: flex;
+        flex-direction: column;
+      }
       #v2 section table.moreinfo th {
         background-color: var(--attention-color);
         line-height: 1.6rem;
@@ -339,7 +346,6 @@
               <tbody>
                 <tr>
                   <th>More info about this title including track listing if available</th>
-                  <th class="text-center">Artwork for this track ( if available )</th>
                 </tr>
                 <tr>
                   <td>
@@ -350,11 +356,23 @@
                       <li>"...with his singularly evocative style of garage and heartbreaking vocals..."</li>
                     </ul>
                   </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th class="text-center">Artwork for this track ( if available )</th>
+                </tr>
+                <tr>
                   <td>
                     <figure style="margin:0;">
-                      <img src="images/wkc013/r001-013_alter.jpg" style="background-size:cover;" alt="Hard to find speed garage (HTFS) by DMTRS WE FLACO ATHENS 10&quot; SPEED GARAG  £{ price } WKC013" />
+                      <img src="images/web/img_1960_1024-70.jpg" width="100%"/>
+                      <img src="images/web/img_1961_1024-70.jpg" width="100%"/>
+                      <img src="images/web/img_1977_1024-70.jpg" width="100%"/>
+                      <img src="images/web/img_1970_1024-70.jpg" width="100%"/>
+                      <!--<img src="images/wkc013/r001-013_alter.jpg" style="background-size:cover;" alt="Hard to find speed garage (HTFS) by DMTRS WE FLACO ATHENS 10&quot; SPEED GARAG  £{ price } WKC013" />-->
                     </figure>
                   </td>
+                </tr>
                 </tr>
               </tbody>
             </table>
