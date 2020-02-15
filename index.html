@@ -51,8 +51,10 @@
       .uppercase {
         text-transform: uppercase;
       }
-      #v2 main {
+      main#v2 {
+        width: 60vw;
         color: var(--dark-color);
+        margin: auto;
       }
       #v2 table th.text-center, #v2 table td.text-center {
         text-align: center;
@@ -90,9 +92,23 @@
       figure.sponsored figcaption { 
         font-size: 0.6rem;
       }
+      figure.gallery {
+        margin:0;
+        display: flex;
+      }
+      figure.gallery img {
+        width: 50%;
+      }
       @media (max-width: 468px) {
         header figure.sponsored  {
           padding: 0;
+        }
+        #v2 section {
+          flex-direction: column;
+        }
+        main#v2 {
+          width: 100vw;
+          margin: 0;
         }
       }
       /** section > table **/
@@ -100,9 +116,6 @@
         display: flex;
       }
       @media (max-width: 468px) {
-        #v2 section {
-          flex-direction: column;
-        }
       }
       #v2 main {
         background-color: var(--dark-bg-color);
@@ -364,11 +377,11 @@
                 </tr>
                 <tr>
                   <td>
-                    <figure style="margin:0;">
-                      <img src="images/web/img_1960_1024-70.jpg" width="100%"/>
-                      <img src="images/web/img_1961_1024-70.jpg" width="100%"/>
-                      <img src="images/web/img_1977_1024-70.jpg" width="100%"/>
-                      <img src="images/web/img_1970_1024-70.jpg" width="100%"/>
+                    <figure class="gallery" >
+                      <img class="landscape" src="images/web/img_1960_1024-70.jpg"/>
+                      <img class="square" src="images/web/img_1977_1024-70.jpg"/>
+                      <img class="landscape" src="images/web/img_1961_1024-70.jpg"/>
+                      <img class="square" src="images/web/img_1970_1024-70.jpg"/>
                       <!--<img src="images/wkc013/r001-013_alter.jpg" style="background-size:cover;" alt="Hard to find speed garage (HTFS) by DMTRS WE FLACO ATHENS 10&quot; SPEED GARAG  £{ price } WKC013" />-->
                     </figure>
                   </td>
