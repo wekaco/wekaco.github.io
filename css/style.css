@@ -65,12 +65,11 @@ main#v2 {
   }
 }
 /** header > figure.sponsored **/
-header figure.sponsored {
-  margin: 0;
-  padding: 10px 40px 10px 40px;
-}
 figure.sponsored {
   color: var(--light-color);
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 figure.sponsored video {
   border: 1px solid var(--light-color);
