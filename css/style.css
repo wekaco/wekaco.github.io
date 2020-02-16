@@ -17,6 +17,7 @@
 body {
   font-size: 18px;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
 }
 .uppercase {
   text-transform: uppercase;
@@ -26,6 +27,11 @@ main#v2 {
   color: var(--dark-color);
   margin: auto;
 }
+@media (max-width: 729px) {
+  main#v2 {
+    width: 80vw;
+  }
+}
 /**#v2 table th.text-center, #v2 table td.text-center {
   text-align: center;
 }**/
@@ -33,7 +39,6 @@ main#v2 {
 #v2 article header span {
   margin-block-start: 0.83em;
   margin-block-end: 0.83em;
-  padding: 0 0.4em 0 0.4em;
   font-size: 1.2rem;
   font-weight: bold;
 }
@@ -44,8 +49,20 @@ main#v2 {
   align-items: baseline;
   justify-content: center;
 }
-#v2 header h1, #v2 header h2, #v2 header h3 {
+#v2 header h1 {
   color: var(--primary-color);
+  width: 100%;
+  text-align: left;
+}
+#v2 header h1 span {
+  line-height: 1rem;
+}
+@media (max-width: 1024px) {
+  #v2 header h1 span {
+    display: block;
+    margin-top: 0.2rem;
+    margin-bottom: 0rem;
+  }
 }
 /** header > figure.sponsored **/
 header figure.sponsored {
@@ -97,18 +114,19 @@ figure.sponsored figcaption {
     max-width: 100%;
   }
 }
+@media (max-width: 1024px) {
+  #v2 section {
+    flex-direction: column;
+  }
+}
 @media (max-width: 468px) {
   header figure.sponsored  {
     padding: 0;
-  }
-  #v2 section {
-    flex-direction: column;
   }
   main#v2 {
     width: 100vw;
     margin: 0;
   }
-  /flex
 }
 /** section > table **/
 #v2 section, #v2 section aside {
@@ -125,9 +143,9 @@ figure.sponsored figcaption {
   background-color: var(--light-bg-color);
   font-size: 12px;
   border: 0;
-  margin: auto;
   border-collapse: collapse;
 }
+
 #v2 section table th {
   background-color: var(--rad-color-2);
   border-color: var(--light-color);
@@ -168,6 +186,9 @@ figure.sponsored figcaption {
   background-position: center;
   background-size: contain;
 }
+#v2 section table.pricelist {
+  width: 100%;
+}
 #v2 table tbody td.price {
   font-weight: bold;
   font-size: 14px;
@@ -206,12 +227,14 @@ figure.sponsored figcaption {
   background-color: var(--attention-bg-color);
   vertical-align: top;
 }
+#v2 footer table {
+  margin: auto;
+}
 #v2 footer table tbody {
   font-size: 0.66rem;
   display: flex;
   flex-direction: row;
   text-align: center;
-  width: 100%;
 }
 #v2 footer table tr {
   display: flex;
