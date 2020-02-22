@@ -48,6 +48,15 @@
     </script>
   </head>
   <body>
+            <figure class="player">
+              <audio
+                controls
+                src="data/WKC013.m4a">
+                Your browser does not support the
+                <code>audio</code> element.
+              </audio>
+              <!--              <figcaption>Listen to sample</figcaption>-->
+            </figure>
     <aside class="sponsored leaderboard">
       <figure>
         <video autoplay loop>
@@ -106,7 +115,7 @@
               </tr>
             </tbody>
           </table>
-          <aside>
+          <!--<aside>
             <figure>
               <figcaption>A</figcaption>
               <audio
@@ -119,15 +128,63 @@
             <div>
               <a href=""><img src="images/tellafriend.gif" alt="Tell a Friend about this track" width="75" height="40" border="0"></a>
             </div>
-          </aside>
+          </aside>-->
+        </section>
+        <section>
+          <table class="moreinfo">
+            <tbody>
+              <tr>
+                <th>Description</th>
+                <td>
+                  <p>In a limited edition of 15 single sided dubs, Dmtrs We Flaco further builds on his signature thematic format and sonic approach, following his mutated dancefloor gqom mashups of WKC012.</p>
+                  <p>Randomly sourced material of the past is now reterritorialized through number logic-based operations that introduce patterns, pulsations, and intervals. Brimming with speed garage and rave aesthetics, information becomes a mnemonic framework that takes cues from Burial to result in an affective listening experience.</p>
+                  <p>Ambience has been deliberately removed. There is no space. Just the ecstatic urgency, front and center, as the moment commands attention, digital flaws erase expectations, and the cycle of tension and release haunts the listener with a familiar, yet distant, experience.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+<style>
+main#v2 header {
+  margin-bottom: 2.4rem;
+}
+body {
+  padding-bottom: 40px;
+}
+#v2 table.moreinfo td p:last-child {
+  padding-bottom: 1rem;
+}
+#v2 table { width: 100%; }
+
+figure.player audio {
+  margin: 0 auto;
+  display: block;
+  max-width: 728px;
+  width: 100%;
+  border-top: 1px solid var(--rad-color-2);
+}
+figure.player {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  -webkit-appearance: none;
+  /**background-color: var(--rad-color-2);**/
+}
+
+#v2 table.moreinfo th,
+#v2 table.moreinfo td p {
+  padding-top: 0.4rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  color: var(--dark-color);
+}</style>
         </section>
         <section>
           <table class="pricelist">
             <tr>
               <th rowspan="4" style="text-align: center;">Selling Price</th>
-              <th class="gbp">Sterling</th>
+            <!--  <th class="gbp">Sterling</th>
               <th class="eur">Euros</th>
-              <th class="store">Available at</th>
+              <th class="store">Available at</th>-->
             </tr>
             <tr>
               <td class="price gbp">£6.00 GBP</td>
@@ -152,24 +209,22 @@
             </tr>
           </table>
         </section>
-        <section>
-          <table class="moreinfo">
-            <tbody>
-              <tr>
-                <th>More info about this title including track listing if available</th>
-                <td>
-                  <p>In a limited edition of 15 single sided dubs, Dmtrs We Flaco further builds on his signature thematic format and sonic approach, following his mutated dancefloor gqom mashups of WKC012.</p>
-                  <p>Randomly sourced material of the past is now reterritorialized through number logic-based operations that introduce patterns, pulsations, and intervals. Brimming with speed garage and rave aesthetics, information becomes a mnemonic framework that takes cues from Burial to result in an affective listening experience.</p>
-                  <p>Ambience has been deliberately removed. There is no space. Just the ecstatic urgency, front and center, as the moment commands attention, digital flaws erase expectations, and the cycle of tension and release haunts the listener with a familiar, yet distant, experience.</p>
-                </td>
-              </tr>
-            </tbody>
+        <section class="gallery">
+          <div class="row">
+            <img class="square" src="images/web/img_1977_1024-70.jpg"/>
+            <img class="landscape" src="images/web/img_1961_1024-70.jpg"/>
+          </div>
+          <div class="row">
+            <img class="landscape" src="images/web/img_1960_1024-70.jpg"/>
+            <img class="square" src="images/web/img_1970_1024-70.jpg"/>
+          </div>
+        </section>
+          <!--<table class="moreinfo">
             <tbody>
               <tr>
                 <th>Artwork for this track ( if available )</th>
                 <td class="gallery">
                   <div class="row">
-                    <img class="square" src="images/web/img_1977_1024-70.jpg"/><img class="landscape" src="images/web/img_1961_1024-70.jpg"/>
                   </div>
                   <div class="row">
                     <img class="landscape" src="images/web/img_1960_1024-70.jpg"/><img class="square" src="images/web/img_1970_1024-70.jpg"/>
@@ -178,8 +233,7 @@
               </tr>
               </tr>
             </tbody>
-          </table>
-        </section>
+          </table>-->
       </article>
       <footer>
         <h4>People who bought this also bought:</h4>

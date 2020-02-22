@@ -95,50 +95,32 @@ figure {
 figure figcaption { 
   font-size: 0.6rem;
 }
-
-#v2 .gallery {
+#v2 section.gallery div.row {
   display: flex;
-  flex-direction: column;
+  width:100%;
 }
-#v2 .gallery .row {
-  max-height: 50vh;
-  display: block;
-  overflow: hidden;
-}
-@media (max-width: 468px) {
-  #v2 .gallery .row {
-    display: flex;
-    flex-direction: column;
-    max-height: none;
-  }
-}
-#v2 td.gallery {
-  margin:0;
-  padding:0;
-}
-#v2 .gallery img {
-  opacity:0.9;
-}
-
-#v2 .gallery img.square {
-  max-width: calc(100% * 0.4286312265);
-}
-#v2 .gallery img.landscape {
-  max-width: calc(100% * 0.5713687735);
-}
-@media (max-width: 468px) {
-  #v2 .gallery img.square, #v2 .gallery img.landscape {
-    max-width: 100%;
-  }
+#v2 section.gallery {
+  flex-wrap: wrap;
+  width:100%;
 }
 main#v2 {
   background-color: var(--dark-bg-color);
   margin-bottom: 2rem;
 }
 
+@media (max-width: 728px) {
+  #v2 section.gallery {
+    flex-direction: column;
+  }
+  #v2 section.gallery div.row {
+    flex-wrap: wrap;
+  }
+}
+
 /** section > table **/
 #v2 section, #v2 section aside {
   display: flex;
+  width: 100%;
 }
 #v2 section aside {
   background-color: var(--primary-bg-color);
@@ -157,6 +139,7 @@ main#v2 {
   #v2 section aside {
     border-left: 1px solid var(--light-color);
     border-top: none;
+    flex-direction: row;
   }
 }
 @media (max-width: 1024px) {
@@ -225,6 +208,11 @@ main#v2 {
 }
 #v2 section table.pricelist {
   width: 100%;
+}
+@media (max-width: 728px) {
+  #v2 section table.pricelist tbody tr:first-child {
+    display: none;
+  }
 }
 #v2 table tbody td.price {
   font-weight: bold;
