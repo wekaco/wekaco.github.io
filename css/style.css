@@ -88,9 +88,11 @@ aside.sponsored figure video {
 /** header > figure.sponsored **/
 aside.sponsored figure {
   color: var(--light-color);
+}
+figure {
   margin: 0;
 }
-aside.sponsored figure figcaption { 
+figure figcaption { 
   font-size: 0.6rem;
 }
 
@@ -141,6 +143,7 @@ main#v2 {
 #v2 section aside {
   background-color: var(--primary-bg-color);
   border-top: 1px solid var(--light-color);
+  flex-direction: column;
 }
 #v2 section table, #v2 footer table {
   background-color: var(--light-bg-color);
