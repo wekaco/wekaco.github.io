@@ -29,36 +29,29 @@ main#v2 {
 }
 @media (max-width: 729px) {
   main#v2 {
-    width: 80vw;
+    width: 98vw;
+    margin: auto;
+  }
+  #v2 section table, #v2 footer table {
+    width: 100%;
   }
 }
-/**#v2 table th.text-center, #v2 table td.text-center {
-  text-align: center;
-}**/
 /** article > header **/
-#v2 article header span {
+#v2 h1 span {
   margin-block-start: 0.83em;
   margin-block-end: 0.83em;
   font-size: 1.2rem;
+  line-height: 1rem;
   font-weight: bold;
 }
-#v2 header {
-  padding: 0.6em 0.2em 0.4em 0.2em;
-  line-height: 2rem;
-  display:flex;
-  align-items: baseline;
-  justify-content: center;
-}
-#v2 header h1 {
+#v2 h1 {
   color: var(--primary-color);
   width: 100%;
   text-align: left;
 }
-#v2 header h1 span {
-  line-height: 1rem;
-}
+
 @media (max-width: 1024px) {
-  #v2 header h1 span {
+  #v2 h1 span {
     display: block;
     margin-top: 0.2rem;
     margin-bottom: 0rem;
@@ -113,10 +106,8 @@ figure.sponsored figcaption {
     max-width: 100%;
   }
 }
-@media (max-width: 1024px) {
-  #v2 section {
-    flex-direction: column;
-  }
+main#v2 {
+  background-color: var(--dark-bg-color);
 }
 @media (max-width: 468px) {
   header figure.sponsored  {
@@ -127,34 +118,61 @@ figure.sponsored figcaption {
     margin: 0;
   }
 }
+
 /** section > table **/
 #v2 section, #v2 section aside {
   display: flex;
 }
-#v2 main {
-  background-color: var(--dark-bg-color);
-}
 #v2 section aside {
   background-color: var(--primary-bg-color);
-  border: 1px solid var(--light-color);
+  border-top: 1px solid var(--light-color);
 }
 #v2 section table, #v2 footer table {
   background-color: var(--light-bg-color);
   font-size: 12px;
-  border: 0;
   border-collapse: collapse;
+}
+
+@media (max-width: 1024px) {
+  #v2 section {
+    flex-direction: column;
+  }
+  #v2 section aside {
+    border-left: 1px solid var(--light-color);
+    border-top: none;
+  }
 }
 
 #v2 section table th {
   background-color: var(--rad-color-2);
-  border-color: var(--light-color);
   color: var(--light-color);
-  border-width: 1px;
-  border-style: solid;
   font-weight: bold;
 }
-#v2 section table td, #v2 section table th {
+
+#v2 footer table, #v2 section table {
+  border: 1px solid var(--light-color);
+  border-bottom: none;
+  border-top: none;
+}
+
+#v2 section:first-child table tr {
+  border-top: 1px solid var(--light-color);
+}
+
+#v2 footer table th, #v2 footer table td, #v2 section table td, #v2 section table th, #v2 section aside {
   padding: 4px;
+  border-bottom: 1px solid var(--light-color);
+  border-right: 1px solid var(--light-color);
+}
+@media (min-width:1024px) {
+  #v2 footer table tr:last-child td,
+  #v2 footer table tr:last-child th {
+    border-right: none;
+  }
+}
+#v2 section table.moreinfo td, 
+#v2 section table.moreinfo th {
+  border-right: none;
 }
 #v2 section table th, #v2 footer table th {
   text-align: start;
@@ -163,11 +181,6 @@ figure.sponsored figcaption {
   #v2 footer table td.text-center {
     text-align: start;
   }
-}
-#v2 section table td {
-  border-color: var(--dark-color);
-  border-width: 1px;
-  border-style: solid;
 }
 /** table **/
 #v2 table tbody td.store {
@@ -209,10 +222,7 @@ figure.sponsored figcaption {
   display:block;
   mask:url('images/Dft8K.gif') top left / cover;
 }
-/* table moreinfo */
-#v2 section table.moreinfo {
-  width: 100%;
-}
+
 #v2 section table.moreinfo, #v2 section table.moreinfo tbody tr {
   display: flex;
   flex-direction: column;
@@ -270,6 +280,13 @@ figure.sponsored figcaption {
     padding-top: 0;
     min-width: 6rem;
   }
+  #v2 footer table td {
+    border-right: none;
+  }
+  #v2 footer table tbody tr:first-child td,
+  #v2 footer table tbody tr:first-child th {
+    border-top: 1px solid var(--light-color);
+  }
 }
 #v2 footer table th {
 }
@@ -283,24 +300,15 @@ figure.sponsored figcaption {
   padding-top: 0.2rem;
   line-height: 0.7rem;
 }
-/**
-#v2 footer table th {
-  height: 3rem;
-}
-#v2 footer table td {
-  min-height: 5rem;
-}**/
 
 #v2 footer table td {
   background-color: var(--light-bg-color);
-  border: var(--light-color) solid 1px;
 }
 #v2 footer table th {
   background-color: var(--emph-bg-color);
   color: yellow;
   text-align: center;
   color: var(--emph-color);
-  border: var(--light-color) solid 1px;
   font-weight: bold;
   min-height: 2rem;
 }
