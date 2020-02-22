@@ -168,7 +168,8 @@ main#v2 {
 }
 
 #v2 footer table th, #v2 footer table td, #v2 section table td, #v2 section table th, #v2 section aside {
-  padding: 4px;
+  padding: 0.4rem;
+  padding-left: 0.8rem;
   border-bottom: 1px solid var(--light-color);
   border-right: 1px solid var(--light-color);
 }
@@ -287,7 +288,7 @@ main#v2 {
   #v2 footer table td, #v2 footer table th {
     height: auto;
     min-height: auto;
-    padding-left: 0.2rem;
+    padding-left: 0.4rem;
     padding-right: 0.2rem;
     padding-bottom: 0;
     padding-top: 0;
@@ -301,12 +302,8 @@ main#v2 {
     border-top: 1px solid var(--light-color);
   }
 }
-#v2 footer table th {
-}
 #v2 footer table td {
-  min-height: 4rem
-}
-#v2 footer table td, #v2 footer table th {
+  min-height: 4rem;
   padding-left: 1.2rem;
   padding-right: 1.2rem;
   padding-bottom: 0.2rem;
@@ -331,4 +328,40 @@ main#v2 {
   padding: 5px;
   text-align: center;
   color: var(--primary-color);
+}
+main#v2 header {
+  padding-bottom: 1.2rem;
+  padding: 1rem 0.8rem 1.2rem 0.8rem;
+}
+body {
+  padding-bottom: 40px;
+}
+#v2 table.moreinfo td p:last-child {
+  padding-bottom: 1rem;
+}
+#v2 table { width: 100%; }
+
+figure.player audio {
+  margin: 0 auto;
+  display: block;
+  max-width: 728px;
+  width: 100%;
+  border-top: 1px solid var(--rad-color-2);
+}
+figure.player {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  -webkit-appearance: none;
+}
+#v2 table.moreinfo th {
+  color: var(--dark-color);
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+#v2 table.moreinfo td  {
+  padding-top: 0.4rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  color: var(--dark-color);
 }
