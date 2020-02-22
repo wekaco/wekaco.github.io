@@ -23,16 +23,13 @@ body {
   text-transform: uppercase;
 }
 main#v2 {
-  width: 60vw;
+  max-width: 728px;
+  /**width: 60vw;**/
   color: var(--dark-color);
   margin: auto;
 }
 @media (max-width: 729px) {
-  main#v2 {
-    width: 98vw;
-    margin: auto;
-  }
-  #v2 section table, #v2 footer table {
+  #v2 section table {
     width: 100%;
   }
 }
@@ -43,34 +40,60 @@ main#v2 {
   font-size: 1.2rem;
   line-height: 1rem;
   font-weight: bold;
+  display: block;
+  margin-top: 0.2rem;
+  margin-bottom: 0rem;
 }
 #v2 h1 {
   color: var(--primary-color);
   width: 100%;
   text-align: left;
+  margin-top: 0;
+  font-size: 2rem;
+  line-height: 1.6rem;
 }
 
-@media (max-width: 1024px) {
-  #v2 h1 span {
-    display: block;
-    margin-top: 0.2rem;
-    margin-bottom: 0rem;
-  }
-}
-/** header > figure.sponsored **/
-aside figure.sponsored {
-  color: var(--light-color);
+aside.sponsored {
   margin: auto;
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.6rem;
 }
-aside figure.sponsored video {
-  border: 1px solid var(--light-color);
-  max-width: 100%;
+@media (max-width: 1024px) {
+  aside.sponsored {
+    margin-top: 0rem;
+    margin-bottom: 0.8rem;
+  }
 }
-aside figure.sponsored figcaption { 
+@media (max-width: 728px) {
+  aside.sponsored {
+    margin-top: 0rem;
+  }
+}
+@media (max-width: 336px) {
+  aside.sponsored {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+  }
+}
+aside.sponsored.leaderboard {
+  max-width: 728px;
+}
+aside.sponsored.large-rectangle {
+  max-width: 336px;
+}
+aside.sponsored figure video {
+  width: 100%;
+  overflow: hidden;
+}
+/** header > figure.sponsored **/
+aside.sponsored figure {
+  color: var(--light-color);
+  margin: 0;
+}
+aside.sponsored figure figcaption { 
   font-size: 0.6rem;
 }
+
 #v2 .gallery {
   display: flex;
   flex-direction: column;
@@ -108,15 +131,7 @@ aside figure.sponsored figcaption {
 }
 main#v2 {
   background-color: var(--dark-bg-color);
-}
-@media (max-width: 468px) {
-  aside figure.sponsored  {
-    padding: 0;
-  }
-  main#v2 {
-    width: 100vw;
-    margin: 0;
-  }
+  margin-bottom: 2rem;
 }
 
 /** section > table **/
@@ -134,12 +149,19 @@ main#v2 {
 }
 
 @media (max-width: 1024px) {
-  #v2 section {
-    flex-direction: column;
+  main#v2 {
   }
   #v2 section aside {
     border-left: 1px solid var(--light-color);
     border-top: none;
+  }
+}
+@media (max-width: 1024px) {
+  #v2 section {
+    flex-direction: column;
+  }
+  #v2 section:first-child table {
+    width: 100%;
   }
 }
 
@@ -249,7 +271,7 @@ main#v2 {
   display: flex;
   flex-direction: column;
 }
-@media (max-width: 1024px) {
+@media (max-width: 729px) {
   #v2 footer table tbody {
     flex-direction: column;
   }
