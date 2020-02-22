@@ -58,17 +58,17 @@ main#v2 {
   }
 }
 /** header > figure.sponsored **/
-figure.sponsored {
+aside figure.sponsored {
   color: var(--light-color);
   margin: auto;
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
-figure.sponsored video {
+aside figure.sponsored video {
   border: 1px solid var(--light-color);
   max-width: 100%;
 }
-figure.sponsored figcaption { 
+aside figure.sponsored figcaption { 
   font-size: 0.6rem;
 }
 #v2 .gallery {
@@ -110,7 +110,7 @@ main#v2 {
   background-color: var(--dark-bg-color);
 }
 @media (max-width: 468px) {
-  header figure.sponsored  {
+  aside figure.sponsored  {
     padding: 0;
   }
   main#v2 {
