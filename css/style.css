@@ -16,8 +16,10 @@
 
 /** generic **/
 
+html {
+  font-size: 20px;
+}
 body {
-  font-size: 18px;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
 }
@@ -169,7 +171,7 @@ main#v2 {
 
 #v2 section table,#v2 footer table {
   background-color: var(--light-bg-color);
-  font-size: 12px;
+  font-size: 0.8rem;
   border-collapse: collapse;
 }
 
@@ -328,7 +330,7 @@ main#v2 {
   }
 
   #v2 footer table tbody th {
-    min-width: 20%;
+    /*min-width: 25%;*/
     text-align: start;
     min-height: auto;
   }
@@ -341,11 +343,6 @@ main#v2 {
 
   #v2 footer table td,  #v2 footer table th {
     height: auto;
-    min-height: auto;
-    padding-left: 0.4rem;
-    padding-right: 0.2rem;
-    padding-bottom: 0;
-    padding-top: 0;
     min-width: 6rem;
   }
 
@@ -359,11 +356,8 @@ main#v2 {
 }
 
 #v2 footer table td {
-  min-height: 4rem;
-  padding-left: 1.2rem;
-  padding-right: 1.2rem;
-  padding-bottom: 0.2rem;
-  padding-top: 0.2rem;
+  height: 2rem;
+  padding: 0.4rem 0;
   line-height: 0.7rem;
 }
 
@@ -404,19 +398,11 @@ body {
   width: 100%;
 }
 
-figure.player audio {
-  margin: 0 auto;
-  display: block;
-  max-width: 728px;
-  width: 100%;
-  border-top: 1px solid var(--rad-color-2);
-}
-
-figure.player {
-  position: fixed;
-  bottom: 0;
+audio {
   width: 100%;
   -webkit-appearance: none;
+  border-bottom: 1px solid var(--light-color);
+  background-color: var(--light-color);
 }
 
 #v2 table.moreinfo th {
