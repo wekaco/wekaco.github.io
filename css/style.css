@@ -93,28 +93,46 @@ aside.sponsored {
 aside.sponsored.leaderboard {
   max-width: 728px;
 }
+aside.sponsored figure {
+  background-color: black;
+}
+aside.sponsored.leaderboard figure > div {
+  height: 90px;
+  background: url('../images/flaco_High_480.gif');
+  background-repeat: no-repeat;
+  background-position-y: -150px;
+  background-position-x: -20px;
+  width: 480px;
+  margin: auto;
+}
 
 aside.sponsored.large-rectangle {
   max-width: 336px;
 }
+aside.sponsored.large-rectangle figure > div {
+  height: 216px;
+  background: url('../images/pioneer_cdj.gif');
+  background-repeat: no-repeat;
+  width: 320px;
+  margin: auto;
+}
 
-aside.sponsored figure video {
+aside.sponsored figure  {
   width: 100%;
   overflow: hidden;
 }
 
 /** header > figure.sponsored **/
-
-aside.sponsored figure {
-  color: var(--light-color);
-}
-
 figure {
   margin: 0;
 }
 
 figure figcaption {
+  color: var(--light-color);
   font-size: 0.6rem;
+  padding-top: 0.2rem;
+  padding-left: 0.1rem;
+  background-color: var(--dark-bg-color);
 }
 
 #v2 section.gallery img.square {
@@ -229,7 +247,7 @@ main#v2 {
 
 #v2 section table th,#v2 footer table th {
   text-align: start;
-  vertical-align: top;
+  vertical-align: center;
 }
 
 @media (max-width: 468px) {
@@ -271,8 +289,9 @@ main#v2 {
 }
 
 @media (max-width: 728px) {
-  #v2 section table.pricelist tbody tr:first-child {
-    display: none;
+  #v2 section table.pricelist tbody tr:first-child th {
+    font-size: 1.2rem;
+    padding: 2rem;
   }
 }
 
@@ -305,7 +324,6 @@ main#v2 {
 
 #v2 section table.moreinfo td {
   background-color: var(--attention-bg-color);
-  vertical-align: top;
 }
 
 #v2 footer table {
@@ -340,8 +358,6 @@ main#v2 {
   }
 
   #v2 footer table tbody th {
-    /*min-width: 25%;*/
-    text-align: start;
     min-height: auto;
   }
 
