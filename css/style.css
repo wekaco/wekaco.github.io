@@ -90,13 +90,13 @@ aside.sponsored {
   }
 }
 
+aside.sponsored.leaderboard figure .wrapper {
+  background-color: black;
+}
 aside.sponsored.leaderboard {
   max-width: 728px;
 }
-aside.sponsored figure {
-  background-color: black;
-}
-aside.sponsored.leaderboard figure > div {
+aside.sponsored.leaderboard figure .wrapper > a {
   height: 90px;
   background: url('../images/flaco_High_480.gif');
   background-repeat: no-repeat;
@@ -104,17 +104,19 @@ aside.sponsored.leaderboard figure > div {
   background-position-x: -20px;
   width: 480px;
   margin: auto;
+  display: block;
 }
 
 aside.sponsored.large-rectangle {
   max-width: 336px;
 }
-aside.sponsored.large-rectangle figure > div {
+aside.sponsored.large-rectangle figure .wrapper > a {
   height: 216px;
   background: url('../images/pioneer_cdj.gif');
   background-repeat: no-repeat;
   width: 320px;
   margin: auto;
+  display: block;
 }
 
 aside.sponsored figure  {
