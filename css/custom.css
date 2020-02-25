@@ -52,6 +52,10 @@
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
 }
 
+li {
+  margin-bottom: 1em;
+}
+
 h1, h2, h3, h4, h5, p, ul, label, a {
   mix-blend-mode: difference;
   color: #efeeea;
