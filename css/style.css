@@ -19,6 +19,7 @@
 html {
   font-size: 20px;
 }
+
 body {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
@@ -116,7 +117,6 @@ figure figcaption {
   font-size: 0.6rem;
 }
 
-
 #v2 section.gallery img.square {
   max-width: 42%;
 }
@@ -151,7 +151,8 @@ main#v2 {
     flex-wrap: nowrap;
     max-height: none;
   }
-  #v2 section.gallery img.square, #v2 section.gallery img.landscape {
+
+  #v2 section.gallery img.square,  #v2 section.gallery img.landscape {
     max-width: 100%;
   }
 }
@@ -228,6 +229,7 @@ main#v2 {
 
 #v2 section table th,#v2 footer table th {
   text-align: start;
+  vertical-align: top;
 }
 
 @media (max-width: 468px) {
@@ -239,6 +241,7 @@ main#v2 {
 /** table **/
 
 #v2 table tbody td.store {
+  text-align: center;
   background-color: var(--dark-bg-color);
 }
 
@@ -258,6 +261,13 @@ main#v2 {
 
 #v2 section table.pricelist {
   width: 100%;
+}
+
+#v2 section table.pricelist td.store img {
+  max-width: 120px;
+  max-height: 40px;
+  display: block;
+  margin: auto;
 }
 
 @media (max-width: 728px) {
