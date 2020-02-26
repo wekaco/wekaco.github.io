@@ -427,10 +427,6 @@ main#v2 header {
   padding: 1rem 1px 1.2rem 1px;
 }
 
-body {
-  padding-bottom: 40px;
-}
-
 #v2 table.moreinfo td p:last-child {
   padding-bottom: 1rem;
 }
