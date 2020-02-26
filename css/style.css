@@ -68,6 +68,7 @@ aside.sponsored {
   margin: auto;
   margin-top: 1rem;
   margin-bottom: 1.6rem;
+  -webkit-animation: filter-animation 1.5s normal forwards ease-in-out;
 }
 
 @media (max-width: 1024px) {
@@ -101,23 +102,35 @@ aside.sponsored.leaderboard figure .wrapper > a {
   background: url('../images/flaco_High_480.gif');
   background-repeat: no-repeat;
   background-position-y: -150px;
-  background-position-x: -25px;
-  width: 480px;
+  background-position-x: center;
   margin: auto;
   display: block;
 }
+@media (max-width: 480px) {
+  aside.sponsored.leaderboard figure .wrapper > a {
+    height: 60px;
+    background-position-y: -169px;
+  }
+}
+
+@-webkit-keyframes filter-animation {
+   0% { -webkit-transform: scale(0.6); }
+   40% { -webkit-transform: scale(0.85); }
+   90% { -webkit-transform: scale(0.85); }
+   100% { -webkit-transform: scale(1); } 
+}
 
 aside.sponsored.large-rectangle {
-  max-width: 336px;
+  max-width: 320px;
 }
 aside.sponsored.large-rectangle figure .wrapper > a {
   height: 216px;
   background: url('../images/pioneer_cdj.gif');
   background-repeat: no-repeat;
-  width: 320px;
   margin: auto;
   display: block;
 }
+
 
 aside.sponsored figure  {
   width: 100%;
