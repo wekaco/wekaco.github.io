@@ -99,17 +99,23 @@ aside.sponsored.leaderboard {
 }
 aside.sponsored.leaderboard figure .wrapper > a {
   height: 90px;
-  background: url('../images/flaco_High_480.gif');
+  background-image: url('../images/flaco_High_480.gif');
   background-repeat: no-repeat;
   background-position-y: -150px;
   background-position-x: center;
   margin: auto;
   display: block;
 }
+@media (max-width: 728px) {
+  aside.sponsored.leaderboard figure .wrapper > a {
+    background-image: url('../images/flaco_High_320.gif');
+    background-position-y: -90px;
+  }
+}
 @media (max-width: 480px) {
   aside.sponsored.leaderboard figure .wrapper > a {
     height: 60px;
-    background-position-y: -169px;
+    background-position-y: -120px;
   }
 }
 
