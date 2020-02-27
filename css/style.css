@@ -256,7 +256,7 @@ main#v2 {
   }
 }
 
-#v2 section table.moreinfo td,#v2 section table.moreinfo th {
+#v2 section table.moreinfo td,#v2 section table.moreinfo th, #v2 section table.pricelist th {
   border-right: none;
 }
 
@@ -303,18 +303,21 @@ main#v2 {
   margin: auto;
 }
 
-@media (max-width: 728px) {
-  #v2 section table.pricelist tbody tr:first-child th {
-    font-size: 1.2rem;
-    padding: 2rem;
-  }
-}
-
 #v2 table tbody td.price {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 0.8rem;
   color: var(--light-color);
   text-align: center;
+}
+
+@media (max-width: 728px) {
+  /**#v2 section table.pricelist tbody tr:first-child th {
+    font-size: 1.2rem;
+    padding: 2rem;
+  }**/
+  #v2 section tbody td.price {
+    font-size: 1rem;
+  }
 }
 
 #v2 table tbody td.price.gbp,#v2 table tbody th.gbp {
@@ -332,7 +335,7 @@ main#v2 {
   flex-direction: column;
 }
 
-#v2 section table.moreinfo th {
+#v2 section table.moreinfo th, #v2 section table.pricelist th {
   background-color: var(--attention-color);
   line-height: 1.6rem;
 }
@@ -442,7 +445,7 @@ audio {
   background-color: var(--light-color);
 }
 
-#v2 table.moreinfo th {
+#v2 table.moreinfo th, #v2 table.pricelist th {
   color: var(--dark-color);
   padding-left: 0.8rem;
   padding-right: 0.8rem;
